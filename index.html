@@ -5,9 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Global COVID Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
 <body>
+
+    <div>
+    <div class="container is-widescreen mt-2">
+        <div class="notification has-text-centered"> 
+            COVID TRACKER WIREFRAME
+        </div>
+    </div>
     
+    <div class="container is-widescreen">
+    <div class="notification mt-3 is-flex is-justify-content-space-between">
+        <input class=“button” type=“submit” value= CITY,STATE>
+        <button class="button">SEARCH</button>
+        <button class="button" id="currentBtn">CURRENT</button>
+        <button class="button" id="historicBtn">HISTORIC</button>
+        <button class="button" id="worldwideBtn">WORLDWIDE</button>
+        <button class="button" id="countryBtn">COUNTRY</button>
+    </div>
+</div>
+
+<div class="container is is-widescreen">
+    <div class="notification mt-6 has-text-centered">LATEST NEWS HEADLINES ON COVID</div>
+</div> 
+
+    <div class="column is-4" id="current">CURRENT US VALUES</div>
+    <div class="column is-4" id="historical">HISTORIC US VALUES</div>
+    <div class="column is-4" id="worldwide">WORLDWIDE TOTALS</div>
+    <div class="column is-4 s-offset-8" id="specific">SPECIFIC COUNTRY</div>
+
+</div>
+    <footer></footer>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
