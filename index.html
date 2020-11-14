@@ -9,34 +9,34 @@
 </head>
 <body>
 
-    <div> 
-    <div class="container is-widescreen mt-2">
-        <div class="notification has-text-centered"> 
+    <div class="is-mobile"> 
+        <div class="hero is-light is-bold is-mobile">
+        <div class="hero-body has-text-centered is-size-1"> 
             COVID TRACKER WIREFRAME
+        </div>
         </div>
     </div>
     
-    <div class="container is-widescreen">
-    <div class="notification mt-3 is-flex is-justify-content-space-between">
-        <input class=“button” type=“submit” value= CITY,STATE>
-        <button class="button">SEARCH</button>
-        <button class="button" id="currentBtn">CURRENT</button>
-        <button class="button" id="historicBtn">HISTORIC</button>
-        <button class="button" id="worldwideBtn">WORLDWIDE</button>
-        <button class="button" id="countryBtn">COUNTRY</button>
+    <div class="columns is-mobile mt-6 ml-4">
+        
+        <div class="column is-mobile is-one-quarter has-background-grey-light mr-5">
+
+        <p class="button is-light mb-4">SELECT STATE</p><br>
+        <input type="text" id="user-search" placeholder="2 Letter format 'CA'">
+        <button id="state-submit">Submit</button><br>
+        <p class="button is-light mt-4 mb-4">SELECT DATE</p><br>
+        <input type="text" id="user-date" placeholder="Add date: YYYYMMDD">
+        <button id="state-submit">Submit</button>
+
+        </div>
+
+        <div class= "column has-background-light has-text-centered is-size-2">
+           <p class="box" >LATEST HEADLINES ON COVID</p> 
+        </div>
+
     </div>
-</div>
+    
 
-<div class="container is is-widescreen">
-    <div class="notification mt-6 has-text-centered">LATEST NEWS HEADLINES ON COVID</div>
-</div> 
-
-    <div class="column is-4" id="current">CURRENT US VALUES</div>
-    <div class="column is-4" id="historical">HISTORIC US VALUES</div>
-    <div class="column is-4" id="worldwide">WORLDWIDE TOTALS</div>
-    <div class="column is-4 s-offset-8" id="specific">SPECIFIC COUNTRY</div>
-
-</div>
     <footer></footer>
 
     <script src="./assets/js/script.js"></script>
