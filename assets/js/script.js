@@ -3,6 +3,7 @@ var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
 
 
+
 var container = $("#container");
 var date = $("<h3>");
 var state = $("<h3>");
@@ -133,3 +134,4 @@ clearSubmit.on("click", function (event) {
     event.preventDefault();
     removeItems();
   });
+
