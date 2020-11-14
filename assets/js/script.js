@@ -1,21 +1,50 @@
-// Setup Covid Tracker API
+// Setup values
 var stateSubmit = $("#state-submit");
+var clearSubmit = $("#clear-submit");
 
-// Empty values
+
 var container = $("#container");
-var date = $("<h3>").text("");
-var state = $("<h3>").text("");
-var death = $("<h3>").text("");
-var hospitalized = $("<h3>").text("");
-var positive = $("<h3>").text("");
-var negative = $("<h3>").text("");
-var positiveIncrease = $("<h3>").text("");
-var negativeIncrease = $("<h3>").text("");
-var dataQualityGrade = $("<h3>").text("");
+var date = $("<h3>");
+var state = $("<h3>");
+var death = $("<h3>");
+var hospitalized = $("<h3>");
+var positive = $("<h3>");
+var negative = $("<h3>");
+var positiveIncrease = $("<h3>");
+var negativeIncrease = $("<h3>");
+var dataQualityGrade = $("<h3>");
 
-stateSubmit.on("click", function (event) {
-  event.preventDefault();
-  var states = $("#user-search").val();
+// Append Items
+function appendItems(){
+    container.append(
+        date,
+        state,
+        death,
+        hospitalized,
+        positive,
+        negative,
+        positiveIncrease,
+        negativeIncrease,
+        dataQualityGrade);
+}
+
+// Empty Values
+function removeItems(){
+    container = $("#container");
+    date = date.text(" ");
+    state = state.text(" ");
+    death = death.text(" ");
+    hospitalized = hospitalized.text(" ");
+    positive = positive.text(" ");
+    negative = negative.text(" ");
+    positiveIncrease = positiveIncrease.text(" ");
+    negativeIncrease = negativeIncrease.text(" ");
+    dataQualityGrade = dataQualityGrade.text(" ");
+}
+
+// Call API's
+function handleAPI(){
+    var states = $("#user-search").val();
   console.log(states);
   var queryURL =
     "https://api.covidtracking.com/v1/states/" + states + "/current.json";
@@ -26,32 +55,22 @@ stateSubmit.on("click", function (event) {
     console.log(response);
 
     // Searched Values
-    date = $("<h3>").text("Date: " + response.date);
-    state = $("<h3>").text("State: " + response.state);
-    death = $("<h3>").text("Death: " + response.death);
-    hospitalized = $("<h3>").text("Hospitalized: " + response.hospitalized);
-    positive = $("<h3>").text("Positive: " + response.positive);
-    negative = $("<h3>").text("Negative: " + response.negative);
-    positiveIncrease = $("<h3>").text(
-      "Positive Increse: " + response.positiveIncrease
+    date.text("Date: " + response.date);
+    state.text("State: " + response.state);
+    death.text("Death: " + response.death);
+    hospitalized.text("Hospitalized: " + response.hospitalized);
+    positive.text("Positive: " + response.positive);
+    negative.text("Negative: " + response.negative);
+    positiveIncrease.text(
+      "Positive Increase: " + response.positiveIncrease
     );
-    negativeIncrease = $("<h3>").text(
+    negativeIncrease.text(
       "Negative Increase: " + response.negativeIncrease
     );
-    dataQualityGrade = $("<h3>").text(
+    dataQualityGrade.text(
       "Data Qualtiy Grade: " + response.dataQualityGrade
     );
-    container.append(
-      date,
-      state,
-      death,
-      hospitalized,
-      positive,
-      negative,
-      positiveIncrease,
-      negativeIncrease,
-      dataQualityGrade
-    );
+appendItems();
     //Ajax call for historic values
     var dates = $("#user-date").val();
     console.log(dates);
@@ -70,33 +89,32 @@ stateSubmit.on("click", function (event) {
         url: queryURL,
         method: "GET",
       }).then(function (response) {
-        date = $("<h3>").text("Date: " + response.date);
-        state = $("<h3>").text("State: " + response.state);
-        death = $("<h3>").text("Death: " + response.death);
-        hospitalized = $("<h3>").text("Hospitalized: " + response.hospitalized);
-        positive = $("<h3>").text("Positive: " + response.positive);
-        negative = $("<h3>").text("Negative: " + response.negative);
-        positiveIncrease = $("<h3>").text(
-          "Positive Increse: " + response.positiveIncrease
+        date.text("Date: " + response.date);
+        state.text("State: " + response.state);
+        death.text("Death: " + response.death);
+        hospitalized.text("Hospitalized: " + response.hospitalized);
+        positive.text("Positive: " + response.positive);
+        negative.text("Negative: " + response.negative);
+        positiveIncrease.text(
+          "Positive Increase: " + response.positiveIncrease
         );
-        negativeIncrease = $("<h3>").text(
+        negativeIncrease.text(
           "Negative Increase: " + response.negativeIncrease
         );
-        dataQualityGrade = $("<h3>").text(
+        dataQualityGrade.text(
           "Data Qualtiy Grade: " + response.dataQualityGrade
         );
-        container.append(
-          date,
-          state,
-          death,
-          hospitalized,
-          positive,
-          negative,
-          positiveIncrease,
-          negativeIncrease,
-          dataQualityGrade
-        );
+        appendItems();
       });
     }
   });
+}
+
+stateSubmit.on("click", function (event) {
+  event.preventDefault();
+  handleAPI();
 });
+clearSubmit.on("click", function (event) {
+    event.preventDefault();
+    removeItems();
+  });
