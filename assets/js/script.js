@@ -110,9 +110,24 @@ appendItems();
   });
 }
 
+// News Handler
+function newsHandler(){
+  var queryURL =
+  "http://newsapi.org/v2/everything?q=covid&sortBy=popularity&apiKey=7906e2c88174490ca03bc87497f4ba8a";
+  console.log(queryURL);
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    // date.text("Date: " + response.date);
+  });
+};
+
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  newsHandler();
 });
 clearSubmit.on("click", function (event) {
     event.preventDefault();
