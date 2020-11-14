@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
     <link rel="stylesheet" href="../css/style.css" />
     <title>Global COVID Tracker</title>
 </head>
 <body>
+    <main class="container">
+        <div id="title" class="container jumbotron text-light bg-dark m-1 ">
     <h2>Search State Covid Information:</h2>
-    <input type="text" id="user-search" placeholder="2 Letter format 'CA'">
-    <input type="text" id="user-date" placeholder="Add date: YYYYMMDD">
-    <button id="state-submit">Submit</button> <button id="clear-submit">Clear</button>
-    <div id="container">Test</div>
-    <div id="container-two">Test</div>
-    
+</div>
+    <div id="form" class="container d-flex">
+    <input class="col-4 form-control" type="text" id="user-search" placeholder="2 Letter format 'CA'">
+    <input class="col-4 form-control mx-1" type="text" id="user-date" placeholder="Add date: YYYYMMDD">
+    <button id="state-submit" class="col-2 btn btn-primary mr-1">Submit</button> 
+    <button id="clear-submit" class="col-2 btn btn-danger">Clear</button>
+</div>
+    <div id="container-holder" class="col-12 d-flex my-1 ">
+    <div id="container" class="card p-2 col-6 mr-1"><h2>Current:</h2></div>
+    <div id="container-two" class="card p-2 ml-1 col-6"><h2>Historic:</h2></div>
+</div>
+</main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
 </body>
