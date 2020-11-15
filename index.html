@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>US COVID Tracker</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="icon" href="./assets/images/favicon-16x16.png">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link rel="icon" href="./assets/images/favicon-16x16.png" />
+  </head>
 
-</head>
-
-<body>
-
-    
-    <div class="hero is-flex is-justify-content-center has-bg-img"> 
-        <div class="hero is-success is-bold is-mobile">
-        <div class="hero-body has-text-centered is-size-1"> 
-            
-            SEARCH STATE COVID INFORMATION
+  <body>
+    <div class="hero is-flex is-justify-content-center">
+      <div class="hero is-success is-bold is-mobile">
+        <div class="hero-body has-text-centered is-size-1">
+          SEARCH STATE COVID INFORMATION
         </div>
-        </div>
+      </div>
     </div>
-    
+
     <div class="container is-flex">
-        
-        <div class="container is-flex is-justify-content-space-around mt-5">
-
-        
-        <input class="input" type="text" id="user-search" placeholder="2 Letter format 'CA'">
-        <input class="input" type="text" id="user-date" placeholder="Add date: YYYYMMDD">
+      <div class="container is-flex is-justify-content-space-around mt-5">
+        <input
+          class="input"
+          type="text"
+          id="user-search"
+          placeholder="2 Letter format 'CA'"
+        />
+        <input
+          class="input"
+          type="text"
+          id="user-date"
+          placeholder="Add date: YYYYMMDD"
+        />
         <button class="button" id="state-submit">SUBMIT</button>
-        <button class="button" id="state-submit">CLEAR</button>
+        <button class="button" id="clear-submit">CLEAR</button>
+      </div>
+    </div>
+    <br />
 
-        </div>
+    <div class="container has-text-centered is-size-2">
+      <p class="box">LATEST HEADLINES ON COVID</p>
+    </div>
 
-    </div><br>
+    <div class="container">
 
-    <div class= "container has-text-centered is-size-2">
-        <p class="box" >LATEST HEADLINES ON COVID</p> 
-     </div>
-
-     <div class="column is-mobile is-flex  mt-5">
-
-         <div id="container-holder" class="container is-flex">
-            <div id="container" class="box"><h2>Current:</h2></div>
-            <div id="container-two" class="box"><h2>Historic:</h2></div>
-     </div>
+    <div id="container-holder" class="columns level" style="padding:20px;">
+      <div id="container" class="column is-6-desktop level-left box" style="margin-right: 5px;">
+        <h2 style="font-weight: bold;">Current State Covid-19 Metrics:</h2>
+      </div>
+      <div id="container-two" class="column is-6-desktop level-right box" style="margin-top: -25px;margin-left: 5px;">
+        <h2 style="font-weight: bold; ">Historic State Covid-19 Metrics:</h2>
+      </div>
+    </div>
+    </div>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/script.js"></script>
-
-</body>
-
+  </body>
 </html>
