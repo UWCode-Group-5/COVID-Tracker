@@ -92,7 +92,6 @@ function handleAPI(){
     method: "GET",
   }).then(function (response) {
     console.log(response);
-
     // Ajax Call for Searched Current Values
     date.text("Date: " + response.date);
     state.text("State: " + response.state);
