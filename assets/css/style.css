@@ -13,7 +13,7 @@
     opacity: 0.3;
   }
 
-   .bg-image {
+   /* .bg-image {
       background-image: url("./assets/images/cdc-k0KRNtqcjfw-unsplash (1).jpg");
       /* filter: blur(2px); */
       /* -webkit-filter: blur(2px);  */
@@ -21,4 +21,4 @@
       background-position: center;
       /* background-repeat: no-repeat;  */
       background-size: cover;
-   }
+   /* } */
