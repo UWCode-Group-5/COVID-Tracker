@@ -6,35 +6,42 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Global COVID Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="icon" href="./assets/images/favicon-16x16.png">
 </head>
 <body>
-
-    <div class="is-mobile"> 
-        <div class="hero is-light is-bold is-mobile">
+    
+    <div class="is-flex is-justify-content-center"> 
+        <div class="hero is-success is-bold is-mobile">
         <div class="hero-body has-text-centered is-size-1"> 
-            COVID TRACKER WIREFRAME
+            
+            SEARCH STATE COVID INFORMATION
         </div>
         </div>
     </div>
     
-    <div class="columns is-mobile mt-6 ml-4">
+    <div class="container is-flex">
         
-        <div class="column is-mobile is-one-quarter has-background-grey-light mr-5">
+        <div class="container is-flex is-justify-content-space-around mt-5">
 
-        <p class="button is-light mb-4">SELECT STATE</p><br>
-        <input type="text" id="user-search" placeholder="2 Letter format 'CA'">
-        <button id="state-submit">Submit</button><br>
-        <p class="button is-light mt-4 mb-4">SELECT DATE</p><br>
-        <input type="text" id="user-date" placeholder="Add date: YYYYMMDD">
-        <button id="state-submit">Submit</button>
+        
+        <input class="input" type="text" id="user-search" placeholder="2 Letter format 'CA'">
+        <input class="input" type="text" id="user-date" placeholder="Add date: YYYYMMDD">
+        <button class="button" id="state-submit">SUBMIT</button>
+        <button class="button" id="state-submit">CLEAR</button>
 
         </div>
 
-        <div class= "column has-background-light has-text-centered is-size-2">
-           <p class="box" >LATEST HEADLINES ON COVID</p> 
-        </div>
+    </div><br>
 
-    </div>
+    <div class= "container has-background-light has-text-centered is-size-2">
+        <p class="box" >LATEST HEADLINES ON COVID</p> 
+     </div>
+
+     <div class="column is-mobile is-flex  mt-5">
+         <p class="column has-text-centered">CURRENT</p>
+
+         <p class="column has-text-centered">HISTORIC</p>
+     </div>
     
 
     <footer></footer>
