@@ -13,12 +13,10 @@
     opacity: 0.3;
   }
 
-   /* .bg-image {
-      background-image: url("./assets/images/cdc-k0KRNtqcjfw-unsplash (1).jpg");
-      /* filter: blur(2px); */
-      /* -webkit-filter: blur(2px);  */
-      height: 100%;
-      background-position: center;
-      /* background-repeat: no-repeat;  */
-      background-size: cover;
-   /* } */
+  html { 
+    background: url(assets/images/covid.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
