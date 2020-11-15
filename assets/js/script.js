@@ -58,7 +58,7 @@ function appendHistoric(){
 
 // Empty Values
 function removeItems(){
-    container = $("#container");
+// Clear Current Values
     date = date.text(" ");
     state = state.text(" ");
     death = death.text(" ");
@@ -68,6 +68,17 @@ function removeItems(){
     positiveIncrease = positiveIncrease.text(" ");
     negativeIncrease = negativeIncrease.text(" ");
     dataQualityGrade = dataQualityGrade.text(" ");
+
+    //Clear Historic Values
+    dateTwo = dateTwo.text(" ");
+    stateTwo = stateTwo.text(" ");
+    deathTwo = deathTwo.text(" ");
+    hospitalizedTwo = hospitalizedTwo.text(" ");
+    positiveTwo = positiveTwo.text(" ");
+    negativeTwo = negativeTwo.text(" ");
+    positiveIncreaseTwo = positiveIncreaseTwo.text(" ");
+    negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
+    dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
 
 // Call API's
