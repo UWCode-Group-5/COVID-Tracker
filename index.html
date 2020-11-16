@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>US COVID Tracker</title>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
     <link rel="icon" href="./assets/images/favicon-16x16.png" />
+    <title>US COVID Tracker</title>
   </head>
 
   <body>
@@ -29,12 +30,11 @@
           id="user-search"
           placeholder="2 Letter format 'CA'"
         />
-        <input
+        <input id="datepicker" class="input"/>
+        <!-- <input
           class="input"
-          type="text"
-          id="user-date"
-          placeholder="Add date: YYYYMMDD"
-        />
+          id="datepicker"
+        /> -->
         <button class="button" id="state-submit">SUBMIT</button>
         <button class="button" id="clear-submit">CLEAR</button>
       </div>
@@ -58,6 +58,7 @@
     </div>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

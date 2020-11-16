@@ -1,6 +1,10 @@
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
+  $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
+  // $("#ui-datepicker-div").addClass("box");
+
+
 
 // Current Data Container
 var container = $("#container");
@@ -110,7 +114,8 @@ function handleAPI(){
     );
 appendCurrent(response);
     //Ajax call for Searched Historic Values
-    var dates = $("#user-date").val();
+    var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
+    // var dates = $("#user-date").val();
     console.log(dates);
     var queryURL =
       "https://api.covidtracking.com/v1/states/" +
