@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>US COVID Tracker</title>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
     <link rel="icon" href="./assets/images/favicon-16x16.png" />
+    <title>US COVID Tracker</title>
   </head>
 
   <body>
-    
-
     <div class="hero is-flex is-justify-content-center">
       <div class="hero is-success is-bold is-mobile">
         <div class="hero-body has-text-centered is-size-1">
@@ -23,12 +22,24 @@
       </div>
     </div>
 
-    <div class="hero">
-      <div class="hero is-mobile"></div>
-      <div class="hero-body has text has-text-centered">
-        <h3>Welcome to Covid search engine. All in one place, search for current and historic information regarding covid</h3>
+    <div class="hero is-flex is">
+      <img class="hero-background is-transparent" src="./assets/images/cdc-k0KRNtqcjfw-unsplash.jpg" alt="Image of the virus in the back">
+      <div class="hero-body">
+        <div class="container">
+        </div>
+        
+        <h3 class="has-text-centered has-text-weight-bold is-size-4 has-text-black-bis">Welcome to the search engine to get all information regarding Covid-19 in the US.<br>
+          To search the current data, simply put two letters for the state in the first field, eg. 2 letter for the state "CA" if you want to get the current data for that state.
+          You can also search by date in the second field, simply click on the field and calendar will pop up to choose the date.
+          
+          
+        </h3>
+
       </div>
-      </div>
+
+        </div>
+      
+    </div>
 
     <div class="container is-flex">
       <div class="container is-flex is-justify-content-space-around mt-5">
@@ -38,12 +49,11 @@
           id="user-search"
           placeholder="2 Letter format 'CA'"
         />
-        <input
+        <input id="datepicker" class="input"/>
+        <!-- <input
           class="input"
-          type="text"
-          id="user-date"
-          placeholder="Add date: YYYYMMDD"
-        />
+          id="datepicker"
+        /> -->
         <button class="button" id="state-submit">SUBMIT</button>
         <button class="button" id="clear-submit">CLEAR</button>
       </div>
@@ -53,7 +63,7 @@
     <div class="container has-text-centered is-size-2">
       <p class="box">LATEST HEADLINES ON COVID</p>
     </div>
-    
+
     <div class="container">
 
     <div id="container-holder" class="columns level" style="padding:20px;">
@@ -65,9 +75,9 @@
       </div>
     </div>
     </div>
-    <!-- <img class="is-flex-mobile is-inline" src="./assets/images/cdc-k0KRNtqcjfw-unsplash.jpg" alt="image of the virus"> -->
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
