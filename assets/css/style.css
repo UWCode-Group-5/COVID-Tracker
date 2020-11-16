@@ -1,26 +1,2 @@
-img {
-  /* display: flex; */
-  /* Set rules to fill background */
-  min-height: 100%;
-  /* min-width: 1024px; */
-	
-  /* Set up proportionate scaling */
-  min-width: 100%;
-  height: auto;
-  overflow: hidden;
-  opacity: 0.2;
-  /* Set up positioning */
-  position: relative;
-  top: 0;
-  left: 0;
-}
 
-@media screen and (max-width: 300px) { /* Specific to this particular image */
-  img {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-
-
-}
-
+  
