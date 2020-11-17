@@ -1,6 +1,79 @@
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
+  $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
+
+
+  // Setting up Current Chart.js
+  function chartCurrent(response){
+    var canvasOne = $("<canvas id='myChartOne'></canvas>");
+    var chartContainer1 = $(".chartContainer1");
+    chartContainer1.empty();
+    chartContainer1.append(canvasOne);
+  var myChartOne = $("#myChartOne")[0].getContext("2d");
+  var currentChart;
+  currentChart = new Chart(myChartOne, {
+    type: "bar",
+    data:{
+      labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+      datasets:[{
+        label: "Current Covid Statistics",
+        data:[
+          response.death,
+          response.hospitalized,
+          response.positiveIncrease,
+          response.negativeIncrease,
+        ],
+        backgroundColor:[
+          "#7f0000",
+          "#ce93d8",
+          "#ef9a9a",
+          "#a5d6a7",
+          "#ef5350",
+          "#66bb6a"
+        ]
+      }]
+    },
+    options:{}
+});
+  }
+
+  // Setting up Historic Chart.js
+  function chartHistoric(responseTwo){
+    var canvasTwo = $("<canvas id='myChartTwo'></canvas>");
+    var chartContainer2 = $(".chartContainer2");
+    chartContainer2.empty();
+    chartContainer2.append(canvasTwo);
+    var myChartTwo = $("#myChartTwo")[0].getContext("2d");
+    var historicChart;
+    historicChart = new Chart(myChartTwo, {
+      type: "bar",
+      data:{
+        labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+        datasets:[{
+          label: "Historic Covid Statistics",
+          data:[
+            responseTwo.death,
+            responseTwo.hospitalized,
+            responseTwo.positiveIncrease,
+            responseTwo.negativeIncrease,
+          ],
+          backgroundColor:[
+            "#7f0000",
+            "#ce93d8",
+            "#ef9a9a",
+            "#a5d6a7",
+            "#ef5350",
+            "#66bb6a"
+          ]
+        }]
+      },
+      options:{}
+  });
+
+    }
+
+
 
 // Current Data Container
 var container = $("#container");
@@ -58,7 +131,7 @@ function appendHistoric(){
 
 // Empty Values
 function removeItems(){
-    container = $("#container");
+// Clear Current Values
     date = date.text(" ");
     state = state.text(" ");
     death = death.text(" ");
@@ -68,6 +141,17 @@ function removeItems(){
     positiveIncrease = positiveIncrease.text(" ");
     negativeIncrease = negativeIncrease.text(" ");
     dataQualityGrade = dataQualityGrade.text(" ");
+
+    //Clear Historic Values
+    dateTwo = dateTwo.text(" ");
+    stateTwo = stateTwo.text(" ");
+    deathTwo = deathTwo.text(" ");
+    hospitalizedTwo = hospitalizedTwo.text(" ");
+    positiveTwo = positiveTwo.text(" ");
+    negativeTwo = negativeTwo.text(" ");
+    positiveIncreaseTwo = positiveIncreaseTwo.text(" ");
+    negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
+    dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
 
 // Call API's
@@ -81,7 +165,6 @@ function handleAPI(){
     method: "GET",
   }).then(function (response) {
     console.log(response);
-
     // Ajax Call for Searched Current Values
     date.text("Date: " + response.date);
     state.text("State: " + response.state);
@@ -99,8 +182,11 @@ function handleAPI(){
       "Data Quality Grade: " + response.dataQualityGrade
     );
 appendCurrent(response);
+chartCurrent(response);
+
     //Ajax call for Searched Historic Values
-    var dates = $("#user-date").val();
+    var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
+    // var dates = $("#user-date").val();
     console.log(dates);
     var queryURL =
       "https://api.covidtracking.com/v1/states/" +
@@ -134,6 +220,7 @@ appendCurrent(response);
           "Data Qualtiy Grade: " + responseTwo.dataQualityGrade
         );
         appendHistoric();
+        chartHistoric(responseTwo);
       });
     }
   });
@@ -156,9 +243,19 @@ appendCurrent(response);
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  currentChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
+});
+historicChart.update({
+  duration: 800,
+  easing: 'easeOutBounce'
+});
 //   newsHandler();
 });
 clearSubmit.on("click", function (event) {
     event.preventDefault();
     removeItems();
+    currentChart.destroy();
+    historicChart.destroy();
   });
