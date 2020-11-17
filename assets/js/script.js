@@ -1,7 +1,7 @@
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
-//$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
+$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
 
 
@@ -252,7 +252,6 @@ function newsHandler() {
     var resTitle = response.response.docs[0].headline.main;
     console.log(resTitle);
     title.text("Title: " + response.response.docs[0].headline.main);
-=
     console.log(response.response);
     var title0 = response.response.docs[0].headline.main;
     console.log(title0);
@@ -302,7 +301,7 @@ clearSubmit.on("click", function (event) {
 
 
 
-  $('.simple-marquee-container').SimpleMarquee();
+  // $('.simple-marquee-container').SimpleMarquee();
   
 
 
@@ -344,7 +343,7 @@ clearSubmit.on("click", function (event) {
     // });
     
 // Defining news handler
-function newsHandler(){
+function newsHandlerTwo(){
   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
 
   $.ajax({
@@ -355,4 +354,4 @@ function newsHandler(){
   })
 };
 
-newsHandler()
+newsHandlerTwo()
