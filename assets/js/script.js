@@ -6,6 +6,10 @@ var clearSubmit = $("#clear-submit");
 
   // Setting up Current Chart.js
   function chartCurrent(response){
+    var canvasOne = $("<canvas id='myChartOne'></canvas>");
+    var chartContainer1 = $(".chartContainer1");
+    chartContainer1.empty();
+    chartContainer1.append(canvasOne);
   var myChartOne = $("#myChartOne")[0].getContext("2d");
   var currentChart;
   currentChart = new Chart(myChartOne, {
@@ -36,9 +40,13 @@ var clearSubmit = $("#clear-submit");
 
   // Setting up Historic Chart.js
   function chartHistoric(responseTwo){
+    var canvasTwo = $("<canvas id='myChartTwo'></canvas>");
+    var chartContainer2 = $(".chartContainer2");
+    chartContainer2.empty();
+    chartContainer2.append(canvasTwo);
     var myChartTwo = $("#myChartTwo")[0].getContext("2d");
-    var currentChart;
-    currentChart = new Chart(myChartTwo, {
+    var historicChart;
+    historicChart = new Chart(myChartTwo, {
       type: "bar",
       data:{
         labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
@@ -62,6 +70,7 @@ var clearSubmit = $("#clear-submit");
       },
       options:{}
   });
+
     }
 
 
@@ -234,9 +243,19 @@ chartCurrent(response);
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  currentChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
+});
+historicChart.update({
+  duration: 800,
+  easing: 'easeOutBounce'
+});
 //   newsHandler();
 });
 clearSubmit.on("click", function (event) {
     event.preventDefault();
     removeItems();
+    currentChart.destroy();
+    historicChart.destroy();
   });
