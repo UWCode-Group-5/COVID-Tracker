@@ -4,7 +4,7 @@ var clearSubmit = $("#clear-submit");
   $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
 
 
-  // Setting up Chart.js
+  // Setting up Current Chart.js
   function chartCurrent(response){
   var myChartOne = $("#myChartOne")[0].getContext("2d");
   var currentChart;
@@ -35,7 +35,7 @@ var clearSubmit = $("#clear-submit");
 });
   }
 
-  // Setting up Historic Chart
+  // Setting up Historic Chart.js
   function chartHistoric(responseTwo){
     var myChartTwo = $("#myChartTwo")[0].getContext("2d");
     var currentChart;
