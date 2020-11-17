@@ -11,14 +11,13 @@ var clearSubmit = $("#clear-submit");
   currentChart = new Chart(myChartOne, {
     type: "bar",
     data:{
-      labels:["death", "hospitalized", "positive", "negative", "positiveIncrease", "negativeIncrease"],
+      labels:["death", "hospitalized", "positive", "positiveIncrease", "negativeIncrease"],
       datasets:[{
         label: "Current Covid Statistics",
         data:[
           response.death,
           response.hospitalized,
           response.positive,
-          response.negative,
           response.positiveIncrease,
           response.negativeIncrease,
         ],
@@ -43,14 +42,13 @@ var clearSubmit = $("#clear-submit");
     currentChart = new Chart(myChartTwo, {
       type: "bar",
       data:{
-        labels:["death", "hospitalized", "positive", "negative", "positiveIncrease", "negativeIncrease"],
+        labels:["death", "hospitalized", "positive", "positiveIncrease", "negativeIncrease"],
         datasets:[{
           label: "Historic Covid Statistics",
           data:[
             responseTwo.death,
             responseTwo.hospitalized,
             responseTwo.positive,
-            responseTwo.negative,
             responseTwo.positiveIncrease,
             responseTwo.negativeIncrease,
           ],
