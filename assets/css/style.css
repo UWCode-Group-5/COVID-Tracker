@@ -1,4 +1,8 @@
-.hero.has-background {
+img{
+  width: 300px;
+}
+
+.hero.has-background { 
   position: relative;
   overflow: hidden;
 }
