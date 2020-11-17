@@ -4,20 +4,19 @@ var clearSubmit = $("#clear-submit");
   $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
 
 
-  // Setting up Chart.js
+  // Setting up Current Chart.js
   function chartCurrent(response){
   var myChartOne = $("#myChartOne")[0].getContext("2d");
   var currentChart;
   currentChart = new Chart(myChartOne, {
     type: "bar",
     data:{
-      labels:["death", "hospitalized", "positive", "positiveIncrease", "negativeIncrease"],
+      labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
       datasets:[{
         label: "Current Covid Statistics",
         data:[
           response.death,
           response.hospitalized,
-          response.positive,
           response.positiveIncrease,
           response.negativeIncrease,
         ],
@@ -35,20 +34,19 @@ var clearSubmit = $("#clear-submit");
 });
   }
 
-  // Setting up Historic Chart
+  // Setting up Historic Chart.js
   function chartHistoric(responseTwo){
     var myChartTwo = $("#myChartTwo")[0].getContext("2d");
     var currentChart;
     currentChart = new Chart(myChartTwo, {
       type: "bar",
       data:{
-        labels:["death", "hospitalized", "positive", "positiveIncrease", "negativeIncrease"],
+        labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
         datasets:[{
           label: "Historic Covid Statistics",
           data:[
             responseTwo.death,
             responseTwo.hospitalized,
-            responseTwo.positive,
             responseTwo.positiveIncrease,
             responseTwo.negativeIncrease,
           ],
