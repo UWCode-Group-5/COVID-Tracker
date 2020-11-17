@@ -1,3 +1,8 @@
+img{
+  width: 300px;
+ float: left;
+}
+
 #ui-datepicker-div {
   background-color: #fff;
   border-radius: 6px;
