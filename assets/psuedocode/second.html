@@ -22,26 +22,6 @@
       </div>
     </div>
 
-    <div id="secondHero" class="hero is-flex has-background"><img class="hero-background is-transparent" src="./assets/images/cdc-k0KRNtqcjfw-unsplash.jpg" alt="Image of the virus in the back">
-      
-      <div class="hero-body">
-       
-        
-        
-        <div class="container">
-        <h3 class="has-text-weight-bold is-size-4 has-text-black-bis level-right">Welcome to the search engine to get all the information regarding Covid-19 in the US.<br>
-          To search the current data, simply put two letters for the state in the first field, eg. 2 letter for the state "CA" if you want to get the current data for that state.
-          You can also search by date in the second field, simply click on the field and calendar will pop up to choose the date.
-          
-          
-        </h3>
-
-      </div>
-        </div>
-          </div>
-      
-    </div>
-
     <div class="container is-flex">
       <div class="container is-flex is-justify-content-space-around mt-5">
         <input
@@ -50,7 +30,7 @@
           id="user-search"
           placeholder="2 Letter format 'CA'"
         />
-        <input id="datepicker" class="input"/>
+        <input id="datepicker" class="input" aria-label="Select Date"/>
         <!-- <input
           class="input"
           id="datepicker"
@@ -70,15 +50,27 @@
     <div id="container-holder" class="columns level" style="padding:20px;">
       <div id="container" class="column is-6-desktop level-left box" style="margin-right: 5px;">
         <h2 style="font-weight: bold;">Current State Covid-19 Metrics:</h2>
-      </div><br>
+      </div>
+      <br>
       <div id="container-two" class="column is-6-desktop level-right box" style="margin-top: -25px;margin-left: 5px;">
         <h2 style="font-weight: bold; ">Historic State Covid-19 Metrics:</h2>
       </div>
+    </div>
+    <br>
+    <div id="container-holder-two" class="columns level" style="padding:20px;">
+    <div class="column is-6-desktop level-left box">
+      <canvas id="myChartOne"></canvas>
+    </div>
+    <br>
+    <div class="column is-6-desktop level-right box" style="margin-top: -25px;margin-left: 5px;">
+      <canvas id="myChartTwo"></canvas>
+    </div>
     </div>
     </div>
     <footer></footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

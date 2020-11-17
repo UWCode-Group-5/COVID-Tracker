@@ -96,7 +96,7 @@ function handleAPI(){
       "Negative Increase: " + response.negativeIncrease
     );
     dataQualityGrade.text(
-      "Data Qualtiy Grade: " + response.dataQualityGrade
+      "Data Quality Grade: " + response.dataQualityGrade
     );
 appendCurrent(response);
     //Ajax call for Searched Historic Values
