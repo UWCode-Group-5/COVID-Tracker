@@ -2,7 +2,67 @@
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
   $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
-  // $("#ui-datepicker-div").addClass("box");
+
+
+  // Setting up Current Chart.js
+  function chartCurrent(response){
+  var myChartOne = $("#myChartOne")[0].getContext("2d");
+  var currentChart;
+  currentChart = new Chart(myChartOne, {
+    type: "bar",
+    data:{
+      labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+      datasets:[{
+        label: "Current Covid Statistics",
+        data:[
+          response.death,
+          response.hospitalized,
+          response.positiveIncrease,
+          response.negativeIncrease,
+        ],
+        backgroundColor:[
+          "#7f0000",
+          "#ce93d8",
+          "#ef9a9a",
+          "#a5d6a7",
+          "#ef5350",
+          "#66bb6a"
+        ]
+      }]
+    },
+    options:{}
+});
+  }
+
+  // Setting up Historic Chart.js
+  function chartHistoric(responseTwo){
+    var myChartTwo = $("#myChartTwo")[0].getContext("2d");
+    var currentChart;
+    currentChart = new Chart(myChartTwo, {
+      type: "bar",
+      data:{
+        labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+        datasets:[{
+          label: "Historic Covid Statistics",
+          data:[
+            responseTwo.death,
+            responseTwo.hospitalized,
+            responseTwo.positiveIncrease,
+            responseTwo.negativeIncrease,
+          ],
+          backgroundColor:[
+            "#7f0000",
+            "#ce93d8",
+            "#ef9a9a",
+            "#a5d6a7",
+            "#ef5350",
+            "#66bb6a"
+          ]
+        }]
+      },
+      options:{}
+  });
+    }
 
 
 
@@ -113,6 +173,8 @@ function handleAPI(){
       "Data Qualtiy Grade: " + response.dataQualityGrade
     );
 appendCurrent(response);
+chartCurrent(response);
+
     //Ajax call for Searched Historic Values
     var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
     // var dates = $("#user-date").val();
@@ -149,6 +211,7 @@ appendCurrent(response);
           "Data Qualtiy Grade: " + responseTwo.dataQualityGrade
         );
         appendHistoric();
+        chartHistoric(responseTwo);
       });
     }
   });
