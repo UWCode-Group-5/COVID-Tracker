@@ -1,7 +1,16 @@
 # GLOBAL COVID TRACKER
 
 #DESCRIPTION
-A mobile-first app that will allow the user to access COVID-19 data based on location. User will be able to input a location and pertinent data will populate in an easy-to-comprehend and pleasing manner.
+A mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
+
+#INSTALLATION
+This is available as a hosted website, so no installation is required beyond navigating to https://uwcode-group-5.github.io/COVID-Tracker/ in any browser.
+
+#DEVELOPING
+If you are interested in further developing this project, please feel free to clone this project and contribute at:
+
+github repository: https://github.com/UWCode-Group-5/COVID-Tracker
+
 
 #USER STORY
 AS A traveler
