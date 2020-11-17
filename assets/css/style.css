@@ -23,7 +23,6 @@ img{
 .simple-marquee-container {
 	width: 100%;
 	background: grey;
-	float: left;
 	display: inline-block;
 	overflow: hidden;
 	box-sizing: border-box;
