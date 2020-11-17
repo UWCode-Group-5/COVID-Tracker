@@ -1,26 +1,26 @@
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
-  $( "#datepicker" ).datepicker({ dateFormat: 'yymmdd' });
+//$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
 
-  // Setting up Current Chart.js
-  function chartCurrent(response){
+// Setting up Current Chart.js
+function chartCurrent(response) {
   var myChartOne = $("#myChartOne")[0].getContext("2d");
   var currentChart;
   currentChart = new Chart(myChartOne, {
     type: "bar",
-    data:{
-      labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
-      datasets:[{
+    data: {
+      labels: ["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+      datasets: [{
         label: "Current Covid Statistics",
-        data:[
+        data: [
           response.death,
           response.hospitalized,
           response.positiveIncrease,
           response.negativeIncrease,
         ],
-        backgroundColor:[
+        backgroundColor: [
           "#7f0000",
           "#ce93d8",
           "#ef9a9a",
@@ -30,39 +30,39 @@ var clearSubmit = $("#clear-submit");
         ]
       }]
     },
-    options:{}
-});
-  }
-
-  // Setting up Historic Chart.js
-  function chartHistoric(responseTwo){
-    var myChartTwo = $("#myChartTwo")[0].getContext("2d");
-    var currentChart;
-    currentChart = new Chart(myChartTwo, {
-      type: "bar",
-      data:{
-        labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
-        datasets:[{
-          label: "Historic Covid Statistics",
-          data:[
-            responseTwo.death,
-            responseTwo.hospitalized,
-            responseTwo.positiveIncrease,
-            responseTwo.negativeIncrease,
-          ],
-          backgroundColor:[
-            "#7f0000",
-            "#ce93d8",
-            "#ef9a9a",
-            "#a5d6a7",
-            "#ef5350",
-            "#66bb6a"
-          ]
-        }]
-      },
-      options:{}
+    options: {}
   });
-    }
+}
+
+// Setting up Historic Chart.js
+function chartHistoric(responseTwo) {
+  var myChartTwo = $("#myChartTwo")[0].getContext("2d");
+  var currentChart;
+  currentChart = new Chart(myChartTwo, {
+    type: "bar",
+    data: {
+      labels: ["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+      datasets: [{
+        label: "Historic Covid Statistics",
+        data: [
+          responseTwo.death,
+          responseTwo.hospitalized,
+          responseTwo.positiveIncrease,
+          responseTwo.negativeIncrease,
+        ],
+        backgroundColor: [
+          "#7f0000",
+          "#ce93d8",
+          "#ef9a9a",
+          "#a5d6a7",
+          "#ef5350",
+          "#66bb6a"
+        ]
+      }]
+    },
+    options: {}
+  });
+}
 
 
 
@@ -93,61 +93,61 @@ var dataQualityGradeTwo = $("<h3>");
 
 
 // Append Current Items
-function appendCurrent(){
-    container.append(
-        date,
-        state,
-        death,
-        hospitalized,
-        positive,
-        negative,
-        positiveIncrease,
-        negativeIncrease,
-        dataQualityGrade);
+function appendCurrent() {
+  container.append(
+    date,
+    state,
+    death,
+    hospitalized,
+    positive,
+    negative,
+    positiveIncrease,
+    negativeIncrease,
+    dataQualityGrade);
 }
 
 //Append Historic Items
-function appendHistoric(){
+function appendHistoric() {
   containerTwo.append(
-      dateTwo,
-      stateTwo,
-      deathTwo,
-      hospitalizedTwo,
-      positiveTwo,
-      negativeTwo,
-      positiveIncreaseTwo,
-      negativeIncreaseTwo,
-      dataQualityGradeTwo);
+    dateTwo,
+    stateTwo,
+    deathTwo,
+    hospitalizedTwo,
+    positiveTwo,
+    negativeTwo,
+    positiveIncreaseTwo,
+    negativeIncreaseTwo,
+    dataQualityGradeTwo);
 }
 
 // Empty Values
-function removeItems(){
-// Clear Current Values
-    date = date.text(" ");
-    state = state.text(" ");
-    death = death.text(" ");
-    hospitalized = hospitalized.text(" ");
-    positive = positive.text(" ");
-    negative = negative.text(" ");
-    positiveIncrease = positiveIncrease.text(" ");
-    negativeIncrease = negativeIncrease.text(" ");
-    dataQualityGrade = dataQualityGrade.text(" ");
+function removeItems() {
+  // Clear Current Values
+  date = date.text(" ");
+  state = state.text(" ");
+  death = death.text(" ");
+  hospitalized = hospitalized.text(" ");
+  positive = positive.text(" ");
+  negative = negative.text(" ");
+  positiveIncrease = positiveIncrease.text(" ");
+  negativeIncrease = negativeIncrease.text(" ");
+  dataQualityGrade = dataQualityGrade.text(" ");
 
-    //Clear Historic Values
-    dateTwo = dateTwo.text(" ");
-    stateTwo = stateTwo.text(" ");
-    deathTwo = deathTwo.text(" ");
-    hospitalizedTwo = hospitalizedTwo.text(" ");
-    positiveTwo = positiveTwo.text(" ");
-    negativeTwo = negativeTwo.text(" ");
-    positiveIncreaseTwo = positiveIncreaseTwo.text(" ");
-    negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
-    dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
+  //Clear Historic Values
+  dateTwo = dateTwo.text(" ");
+  stateTwo = stateTwo.text(" ");
+  deathTwo = deathTwo.text(" ");
+  hospitalizedTwo = hospitalizedTwo.text(" ");
+  positiveTwo = positiveTwo.text(" ");
+  negativeTwo = negativeTwo.text(" ");
+  positiveIncreaseTwo = positiveIncreaseTwo.text(" ");
+  negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
+  dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
 
 // Call API's
-function handleAPI(){
-    var states = $("#user-search").val();
+function handleAPI() {
+  var states = $("#user-search").val();
   console.log(states);
   var queryURL =
     "https://api.covidtracking.com/v1/states/" + states + "/current.json";
@@ -172,8 +172,8 @@ function handleAPI(){
     dataQualityGrade.text(
       "Data Qualtiy Grade: " + response.dataQualityGrade
     );
-appendCurrent(response);
-chartCurrent(response);
+    appendCurrent(response);
+    chartCurrent(response);
 
     //Ajax call for Searched Historic Values
     var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
@@ -217,26 +217,80 @@ chartCurrent(response);
   });
 }
 
-// // News Handler
-// function newsHandler(){
-//   var queryURL =
-//   "http://newsapi.org/v2/everything?q=covid&sortBy=popularity&apiKey=7906e2c88174490ca03bc87497f4ba8a";
-//   console.log(queryURL);
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response);
-//     // date.text("Date: " + response.date);
-//   });
-// };
 
+//News Handler Variables
+
+
+
+
+
+
+
+
+var newsContainerEl= $("#newsContainer");
+console.log(newsContainer);
+var title = $("<h2>");
+var link = $("<a>");
+
+
+// // News Handler
+function newsHandler() {
+  var queryURL =
+    "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ";
+  console.log(queryURL);
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+
+    var resTitle = response.response.docs[0].headline.main;
+    console.log(resTitle);
+    title.text("Title: " + response.response.docs[0].headline.main);
+   
+
+    
+    console.log(response.response);
+    var title0 = response.response.docs[0].headline.main;
+    console.log(title0);
+
+
+  
+    var link0 = response.response.docs[0].web_url;
+    console.log(link0);
+    link.text("Link").attr("href",link0);
+
+  });
+};
+
+
+
+
+// Append Current Items
+function appendNews() {
+  newsContainerEl.append(
+
+    
+    title,
+    link
+
+
+
+  );
+}
+appendNews();
+
+
+
+
+
+newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
-//   newsHandler();
+  //   newsHandler();
 });
 clearSubmit.on("click", function (event) {
-    event.preventDefault();
-    removeItems();
-  });
+  event.preventDefault();
+  removeItems();
+});
