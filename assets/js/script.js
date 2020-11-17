@@ -233,18 +233,10 @@ function handleAPI() {
 
 //News Handler Variables
 
-
-
-
-
-
-
-
 var newsContainerEl= $("#newsContainer");
 console.log(newsContainer);
 var title = $("<h2>");
 var link = $("<a>");
-
 
 // // News Handler
 function newsHandler() {
@@ -260,15 +252,11 @@ function newsHandler() {
     var resTitle = response.response.docs[0].headline.main;
     console.log(resTitle);
     title.text("Title: " + response.response.docs[0].headline.main);
-   
-
-    
+=
     console.log(response.response);
     var title0 = response.response.docs[0].headline.main;
     console.log(title0);
 
-
-  
     var link0 = response.response.docs[0].web_url;
     console.log(link0);
     link.text("Link").attr("href",link0);
@@ -276,28 +264,19 @@ function newsHandler() {
   });
 };
 
-
-
-
 // Append Current Items
 function appendNews() {
   newsContainerEl.append(
-
-    
     title,
     link
-
-
-
   );
 }
+
+// Appending and Calling NewsAPI
 appendNews();
-
-
-
-
-
 newsHandler();
+
+// Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
@@ -310,8 +289,10 @@ historicChart.update({
   duration: 800,
   easing: 'easeOutBounce'
 });
-//   newsHandler();
+
 });
+
+// Clear Current and Historic API
 clearSubmit.on("click", function (event) {
     event.preventDefault();
     removeItems();
