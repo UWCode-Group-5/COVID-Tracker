@@ -4,8 +4,14 @@ var clearSubmit = $("#clear-submit");
 //$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
 
-// Setting up Current Chart.js
-function chartCurrent(response) {
+
+  // Setting up Current Chart.js
+  function chartCurrent(response){
+    var canvasOne = $("<canvas id='myChartOne'></canvas>");
+    var chartContainer1 = $(".chartContainer1");
+    chartContainer1.empty();
+    chartContainer1.append(canvasOne);
+
   var myChartOne = $("#myChartOne")[0].getContext("2d");
   var currentChart;
   currentChart = new Chart(myChartOne, {
@@ -30,39 +36,46 @@ function chartCurrent(response) {
         ]
       }]
     },
-    options: {}
-  });
-}
 
-// Setting up Historic Chart.js
-function chartHistoric(responseTwo) {
-  var myChartTwo = $("#myChartTwo")[0].getContext("2d");
-  var currentChart;
-  currentChart = new Chart(myChartTwo, {
-    type: "bar",
-    data: {
-      labels: ["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
-      datasets: [{
-        label: "Historic Covid Statistics",
-        data: [
-          responseTwo.death,
-          responseTwo.hospitalized,
-          responseTwo.positiveIncrease,
-          responseTwo.negativeIncrease,
-        ],
-        backgroundColor: [
-          "#7f0000",
-          "#ce93d8",
-          "#ef9a9a",
-          "#a5d6a7",
-          "#ef5350",
-          "#66bb6a"
-        ]
-      }]
-    },
-    options: {}
+    options:{}
+});
+  }
+
+  // Setting up Historic Chart.js
+  function chartHistoric(responseTwo){
+    var canvasTwo = $("<canvas id='myChartTwo'></canvas>");
+    var chartContainer2 = $(".chartContainer2");
+    chartContainer2.empty();
+    chartContainer2.append(canvasTwo);
+    var myChartTwo = $("#myChartTwo")[0].getContext("2d");
+    var historicChart;
+    historicChart = new Chart(myChartTwo, {
+      type: "bar",
+      data:{
+        labels:["death", "hospitalized", "positiveIncrease", "negativeIncrease"],
+        datasets:[{
+          label: "Historic Covid Statistics",
+          data:[
+            responseTwo.death,
+            responseTwo.hospitalized,
+            responseTwo.positiveIncrease,
+            responseTwo.negativeIncrease,
+          ],
+          backgroundColor:[
+            "#7f0000",
+            "#ce93d8",
+            "#ef9a9a",
+            "#a5d6a7",
+            "#ef5350",
+            "#66bb6a"
+          ]
+        }]
+      },
+      options:{}
   });
-}
+
+    }
+
 
 
 
@@ -170,7 +183,7 @@ function handleAPI() {
       "Negative Increase: " + response.negativeIncrease
     );
     dataQualityGrade.text(
-      "Data Qualtiy Grade: " + response.dataQualityGrade
+      "Data Quality Grade: " + response.dataQualityGrade
     );
     appendCurrent(response);
     chartCurrent(response);
@@ -288,9 +301,77 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
-  //   newsHandler();
+
+  currentChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
+});
+historicChart.update({
+  duration: 800,
+  easing: 'easeOutBounce'
+});
+//   newsHandler();
 });
 clearSubmit.on("click", function (event) {
-  event.preventDefault();
-  removeItems();
-});
+    event.preventDefault();
+    removeItems();
+    currentChart.destroy();
+    historicChart.destroy();
+  });
+
+
+
+  $('.simple-marquee-container').SimpleMarquee();
+  
+
+
+    // createMarquee({
+    
+    //   // auto starts on page load
+    //   autostart: true,
+    
+    //   // callback
+    //   onComplete: function(){},
+      
+    //   // controls the speed at which the marquee moves
+    //   duration: 30000, 
+    
+    //   // right margin between consecutive marquees
+    //   padding: 20, 
+    
+    //   // class of the actual div or span that will be used to create the marquee - 
+    //   // multiple marquee items may be created using this item's content. 
+    //   // This item will be removed from the dom
+    //   marquee_class:'.example-marquee', 
+    
+    //   // the container div in which the marquee content will animate. 
+    //   container_class: '.example-container', 
+    
+    //   // a sibling item to the marqueed item  that affects - 
+    //   // the end point position and available space inside the container. 
+    //   sibling_class: '.example-sibling', 
+    
+    //   // Boolean to indicate whether pause on hover should is required. 
+    //   hover: false,
+    
+    //   // 0-1
+    //   velocity: 0,
+      
+    //   // or right
+    //   direction: 'left'
+    
+    // });
+    
+// Defining news handler
+function newsHandler(){
+  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
+
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response.response.docs[0].headline.main)
+  })
+};
+
+newsHandler()
