@@ -1,18 +1,6 @@
-# H1 GLOBAL COVID TRACKER
+# GLOBAL COVID TRACKER
 
 UW Coding Bootcamp Project 1
-
-# H2 Group 05
-Abdulhakeem Dahir
-Marco Bejarano Osegura
-Mia Dilberovic
-Mike Belliveau
-Valentina Decyatnik
-
-# H2 Table of Contents
-
--[Developer Comment]
--[]
 
 ## Table of Contents
 
@@ -27,7 +15,7 @@ Valentina Decyatnik
 - [Credits](#credits)
 
 ## Developer Comment
-
+Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! 
 
 
 ## Employer Request
@@ -61,8 +49,6 @@ THEN pertinent news articles are available at the header
 ![Desktop website wireframe](./assets/images/Desktop_Wireframe.png)
 
 ## Website Features and Highlights
-
-The follwing are all of the feautres and highlights of my portfolio:
 
 ### HTML & CSS
 
@@ -101,7 +87,13 @@ Please follow the installation process below:
 2. Clone the repo to your computer via git
 3. Open the project files with the text editor of your choice.
 ```
-
+## Contributors
+### Group 5
+- Abdulhakeem Dahir
+- Marco Bejarano Osegura
+- Mia Dilberovic
+- Mike Belliveau
+- Valentina Decyatnik
 
 
 
