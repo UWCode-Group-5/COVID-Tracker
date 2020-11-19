@@ -250,15 +250,15 @@ function newsHandler() {
     console.log(response);
 
     var resTitle = response.response.docs[0].headline.main;
-    console.log(resTitle);
-    title.text("Title: " + response.response.docs[0].headline.main);
+    //console.log(resTitle);
+    //title.text("Title: " + response.response.docs[0].headline.main);
     console.log(response.response);
     var title0 = response.response.docs[0].headline.main;
     console.log(title0);
 
     var link0 = response.response.docs[0].web_url;
     console.log(link0);
-    link.text("Link").attr("href", link0);
+    //link.text("Link").attr("href", link0);
 
 
 
@@ -268,26 +268,23 @@ function newsHandler() {
 
 
 
-    
-    var article;
-    var unOrderList = $(".marquee-content-items");
-
-        for (var i=0; i<5;i++){
-
-          article = $("<li>");
-          article.text(response.response.docs[i].headline.main);
-          unOrderList.append(article);
-
-        }
-
-
-
-
-
-
 
     
 
+    for (var i = 0; i < 5; i++) {
+
+      var article;
+      var unOrderList = $(".marquee-content-items");
+      var link;
+      var linki = response.response.docs[i].web_url;
+      article = $("<li>");
+      link = $("<a>");
+      link.text(response.response.docs[i].headline.main);
+      link.attr("href", linki)
+      article.append(link);
+      unOrderList.append(article);
+      console.log(article);
+    }
 
 
 
@@ -298,106 +295,62 @@ function newsHandler() {
 }
 
 
+// Append Current Items
+function appendNews() {
+  newsContainerEl.append(
+    title,
 
-
-
-
-
-  // Append Current Items
-  function appendNews() {
-    newsContainerEl.append(
-      title,
-
-      link
-    );
-  }
+    link
+  );
+}
 
 
 
 
 
 
-  // Appending and Calling NewsAPI
-  appendNews();
-  newsHandler();
+// Appending and Calling NewsAPI
+appendNews();
+newsHandler();
 
-  // Calling and Rendering Current and Historic API
-  stateSubmit.on("click", function (event) {
-    event.preventDefault();
-    handleAPI();
+// Calling and Rendering Current and Historic API
+stateSubmit.on("click", function (event) {
+  event.preventDefault();
+  handleAPI();
 
-    currentChart.update({
-      duration: 800,
-      easing: 'easeOutBounce'
-    });
-    historicChart.update({
-      duration: 800,
-      easing: 'easeOutBounce'
-    });
-
+  currentChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
+  });
+  historicChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
   });
 
-  // Clear Current and Historic API
-  clearSubmit.on("click", function (event) {
-    event.preventDefault();
-    removeItems();
-    currentChart.destroy();
-    historicChart.destroy();
-  });
+});
+
+// Clear Current and Historic API
+clearSubmit.on("click", function (event) {
+  event.preventDefault();
+  removeItems();
+  currentChart.destroy();
+  historicChart.destroy();
+});
 
 
 
-  $('.simple-marquee-container').SimpleMarquee();
 
 
+// Defining news handler
+function newsHandlerTwo() {
+  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
 
-  createMarquee({
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response.response.docs[0].headline.main)
+  })
+};
 
-    // auto starts on page load
-    autostart: true,
-
-    // callback
-    onComplete: function () { },
-
-    // controls the speed at which the marquee moves
-    duration: 30000,
-
-    // right margin between consecutive marquees
-    padding: 20,
-
-    // class of the actual div or span that will be used to create the marquee - 
-    // multiple marquee items may be created using this item's content. 
-    // This item will be removed from the dom
-    marquee_class: '.example-marquee',
-
-    // the container div in which the marquee content will animate. 
-    container_class: '.example-container',
-
-    // a sibling item to the marqueed item  that affects - 
-    // the end point position and available space inside the container. 
-    sibling_class: '.example-sibling',
-
-    // Boolean to indicate whether pause on hover should is required. 
-    hover: false,
-
-    // 0-1
-    velocity: 0,
-
-    // or right
-    direction: 'left'
-
-  });
-
-  // Defining news handler
-  function newsHandlerTwo() {
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
-
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    }).then(function (response) {
-      console.log(response.response.docs[0].headline.main)
-    })
-  };
-
-  newsHandlerTwo()
+newsHandlerTwo()
