@@ -306,19 +306,6 @@ function newsHandler() {
 }
 
 
-<<<<<<< HEAD
-// // Append Current Items
-// function appendNews() {
-//   newsContainerEl.append(
-//     title,
-//     link
-//   );
-// }
-
-// // Appending and Calling NewsAPI
-// appendNews();
-// newsHandler();
-=======
 // Append Current Items
 function appendNews() {
   newsContainerEl.append(
@@ -336,7 +323,6 @@ function appendNews() {
 // Appending and Calling NewsAPI
 appendNews();
 newsHandler();
->>>>>>> main
 
 // Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
@@ -354,6 +340,20 @@ stateSubmit.on("click", function (event) {
 
 });
 
+
+
+
+
+//save to local Storage
+function saveLastState(){
+
+
+
+  
+}
+
+
+
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
   event.preventDefault();
@@ -363,63 +363,7 @@ clearSubmit.on("click", function (event) {
 });
 
 
-<<<<<<< HEAD
-$(function (){
-  $('.simple-marquee-container').SimpleMarquee();
-});
-  
-    // createMarquee({
-    
-    //   // auto starts on page load
-    //   autostart: true,
-    
-    //   // callback
-    //   onComplete: function(){},
-      
-    //   // controls the speed at which the marquee moves
-    //   duration: 30000, 
-    
-    //   // right margin between consecutive marquees
-    //   padding: 20, 
-    
-    //   // class of the actual div or span that will be used to create the marquee - 
-    //   // multiple marquee items may be created using this item's content. 
-    //   // This item will be removed from the dom
-    //   marquee_class:'.example-marquee', 
-    
-    //   // the container div in which the marquee content will animate. 
-    //   container_class: '.example-container', 
-    
-    //   // a sibling item to the marqueed item  that affects - 
-    //   // the end point position and available space inside the container. 
-    //   sibling_class: '.example-sibling', 
-    
-    //   // Boolean to indicate whether pause on hover should is required. 
-    //   hover: false,
-    
-    //   // 0-1
-    //   velocity: 0,
-      
-    //   // or right
-    //   direction: 'left'
-    
-    // });
 
-    
-// Defining news handler
-// function newsHandlerTwo(){
-//   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
-
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response.response.docs[0].headline.main)
-//   })
-// };
-
-// newsHandlerTwo()
-=======
 
 
 
@@ -436,4 +380,4 @@ function newsHandlerTwo() {
 };
 
 newsHandlerTwo()
->>>>>>> main
+
