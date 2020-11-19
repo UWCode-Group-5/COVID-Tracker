@@ -260,20 +260,31 @@ function newsHandler() {
     console.log(link0);
     link.text("Link").attr("href",link0);
 
+    var articleArray = response.response;
+    console.log(articleArray)
+
+    var article;
+    var unOrderList = $('.marque-content-items');
+        for (var i=0; i<5;i++){
+          article = $('<li>');
+          article.text(response.response.docs[i].headline.main);
+          unOrderList.append(article);
+        }
+
   });
 };
 
-// Append Current Items
-function appendNews() {
-  newsContainerEl.append(
-    title,
-    link
-  );
-}
+// // Append Current Items
+// function appendNews() {
+//   newsContainerEl.append(
+//     title,
+//     link
+//   );
+// }
 
-// Appending and Calling NewsAPI
-appendNews();
-newsHandler();
+// // Appending and Calling NewsAPI
+// appendNews();
+// newsHandler();
 
 // Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
@@ -300,11 +311,10 @@ clearSubmit.on("click", function (event) {
   });
 
 
-
-  // $('.simple-marquee-container').SimpleMarquee();
+$(function (){
+  $('.simple-marquee-container').SimpleMarquee();
+});
   
-
-
     // createMarquee({
     
     //   // auto starts on page load
@@ -341,17 +351,18 @@ clearSubmit.on("click", function (event) {
     //   direction: 'left'
     
     // });
+
     
 // Defining news handler
-function newsHandlerTwo(){
-  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
+// function newsHandlerTwo(){
+//   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response.response.docs[0].headline.main)
-  })
-};
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//   }).then(function (response) {
+//     console.log(response.response.docs[0].headline.main)
+//   })
+// };
 
-newsHandlerTwo()
+// newsHandlerTwo()
