@@ -329,6 +329,20 @@ stateSubmit.on("click", function (event) {
 
 });
 
+
+
+
+
+//save to local Storage
+function saveLastState(){
+
+
+
+  
+}
+
+
+
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
   event.preventDefault();
@@ -341,16 +355,3 @@ clearSubmit.on("click", function (event) {
 
 
 
-// Defining news handler
-function newsHandlerTwo() {
-  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
-
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response.response.docs[0].headline.main)
-  })
-};
-
-newsHandlerTwo()
