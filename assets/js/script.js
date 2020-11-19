@@ -1,7 +1,7 @@
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
-//$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
+$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
 
 // Setting up Current Chart.js
@@ -258,7 +258,16 @@ function newsHandler() {
   
     var link0 = response.response.docs[0].web_url;
     console.log(link0);
-    link.text("Link").attr("href",link0);
+    link.text( "Link" ).attr("href",link0);
+
+
+
+      var articleArray=response.response;
+      console.log(articleArray);
+
+
+      
+
 
   });
 };
@@ -272,6 +281,7 @@ function appendNews() {
 
     
     title,
+    
     link
 
 
@@ -279,12 +289,11 @@ function appendNews() {
   );
 }
 appendNews();
-
-
-
-
-
 newsHandler();
+
+
+
+
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
