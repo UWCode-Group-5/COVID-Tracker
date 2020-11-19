@@ -277,7 +277,7 @@ function newsHandler() {
       var unOrderList = $("#newsArticles");
       var link;
       var linki = response.response.docs[i].web_url;
-      article = $('<li class="is-size-5"> ');
+      article = $('<li class="is-size-5" style= "list-style:none;"> ');
       link = $("<a>");
       link.text(response.response.docs[i].headline.main);
       link.attr("href", linki)
