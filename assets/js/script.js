@@ -274,7 +274,7 @@ function newsHandler() {
     for (var i = 0; i < 5; i++) {
 
       var article;
-      var unOrderList = $(".marquee-content-items");
+      var unOrderList = $("#newsArticles");
       var link;
       var linki = response.response.docs[i].web_url;
       article = $("<li>");
