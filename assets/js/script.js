@@ -288,6 +288,17 @@ function newsHandler() {
 
 
 
+    var articleArray = response.response;
+    console.log(articleArray)
+
+    var article;
+    var unOrderList = $('.marque-content-items');
+        for (var i=0; i<5;i++){
+          article = $('<li>');
+          article.text(response.response.docs[i].headline.main);
+          unOrderList.append(article);
+        }
+
   });
 
 
@@ -354,4 +365,19 @@ clearSubmit.on("click", function (event) {
 
 
 
+
+
+// Defining news handler
+function newsHandlerTwo() {
+  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
+
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response.response.docs[0].headline.main)
+  })
+};
+
+newsHandlerTwo()
 

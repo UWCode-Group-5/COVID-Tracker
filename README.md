@@ -29,6 +29,15 @@ Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp!
 
 ### User Story
 
+<<<<<<< HEAD
+#Mockup
+
+#Website Features and Highlights 
+
+#Live Project Site 
+
+#Installation and Git Repository 
+=======
 ```
 AS A traveler with concerns about COVID-19
 I WANT to be able to see COVID-19 data based on location and date
@@ -36,6 +45,7 @@ SO THAT I can plan my travels to remain as safe as possible
 ```
 
 ### Acceptance Criteria
+>>>>>>> main
 
 ```
 GIVEN I am navigating to a deployed website
