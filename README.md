@@ -4,15 +4,20 @@ UW Coding Bootcamp Project 1
 
 ## Table of Contents
 
-- [Developer Comment](#developer-comment)
-- [Employer Request](#employer-request)
-- [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
-- [Mockup](#mockup)
-- [Website Features and Highlights](#website-features-and-highlights)
-- [Live Project Site](#live-project-site)
-- [Installation and Git Repository](#installation-and-git-repository)
-- [Credits](#credits)
+- [GLOBAL COVID TRACKER](#global-covid-tracker)
+  - [Table of Contents](#table-of-contents)
+  - [Developer Comment](#developer-comment)
+  - [Employer Request](#employer-request)
+    - [User Story](#user-story)
+    - [Acceptance Criteria](#acceptance-criteria)
+  - [Mockup](#mockup)
+  - [Website Features and Highlights](#website-features-and-highlights)
+    - [HTML & CSS](#html--css)
+    - [JAVASCRIPT](#javascript)
+  - [Live Project Site](#live-project-site)
+  - [Installation and Git Repository](#installation-and-git-repository)
+  - [Contributors](#contributors)
+    - [Group 5](#group-5)
 
 ## Developer Comment
 Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
@@ -49,6 +54,15 @@ THEN pertinent news articles are available at the header
 ![Desktop website wireframe](./assets/images/Desktop_Wireframe.png)
 
 ## Website Features and Highlights
+```
+-Users are able to search for current Covid Data within any state in the U.S. 
+-Users are also able to search historic data to compare to current Covid infections in the U.S. 
+-This application features colorful graphs to easily read current/historical statistics. 
+-The top of the application features a New York Times article section. This section updates daily 
+with the five latest articles containing information related to the Corona Virus. 
+-The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or an IPad.
+```
+
 
 ### HTML & CSS
 
