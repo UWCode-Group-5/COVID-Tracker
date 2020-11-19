@@ -280,23 +280,12 @@ stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
 
-  currentChart.update({
-    duration: 800,
-    easing: 'easeOutBounce'
-});
-historicChart.update({
-  duration: 800,
-  easing: 'easeOutBounce'
-});
-
 });
 
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
     event.preventDefault();
     removeItems();
-    currentChart.destroy();
-    historicChart.destroy();
   });
 
 
@@ -343,15 +332,15 @@ clearSubmit.on("click", function (event) {
     // });
     
 // Defining news handler
-function newsHandlerTwo(){
-  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
+// function newsHandlerTwo(){
+//   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response.response.docs[0].headline.main)
-  })
-};
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//   }).then(function (response) {
+//     console.log(response.response.docs[0].headline.main)
+//   })
+// };
 
-newsHandlerTwo()
+// newsHandlerTwo()
