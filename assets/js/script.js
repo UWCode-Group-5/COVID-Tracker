@@ -1,3 +1,6 @@
+// Setting up moment.js
+var today = moment();
+
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
@@ -194,7 +197,7 @@ function handleAPI() {
         url: queryURL,
         method: "GET",
       }).then(function (responseTwo) {
-        dateTwo.text("Date: " + responseTwo.date);
+        dateTwo.text("Date: " + (moment(responseTwo.date).format('MM/DD/YYYY')));
         stateTwo.text("State: " + responseTwo.state);
         deathTwo.text("Covid State Deaths: " + responseTwo.death);
         hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
