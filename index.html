@@ -1,97 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
-    <link rel="icon" href="./assets/images/favicon-16x16.png" />
-    <title>US COVID Tracker</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <body>
-    <div class="hero is-flex is-justify-content-center">
-      <div class="hero is-success is-bold is-mobile">
-        <div class="hero-body has-text-centered is-size-1">
-          SEARCH STATE COVID INFORMATION
-        </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <link rel="icon" href="./assets/images/favicon-16x16.png" />
+  <title>US COVID Tracker</title>
+</head>
+
+<body>
+  <div class="hero is-flex is-justify-content-center">
+    <div class="hero is-success is-bold is-mobile">
+      <div class="hero-body has-text-centered is-size-1">
+        SEARCH STATE COVID INFORMATION
       </div>
     </div>
+  </div>
 
-    <div id="secondHero" class="hero is-flex has-background">
-      <div class="hero-body">
-        <div class="container">
-          <img class="is-transparent" src="./assets/images/cdc-k0KRNtqcjfw-unsplash.jpg" alt="Image of the virus">
-        <p class="is-size-5 has-text-black-bis level-right" >Welcome to the State Covid Tracker.
-        This application enables you to search for up to date Covid-19 data in all 50 States.<br><br>
-          To search the current data, simply put two letters for the state in the first field, eg. 2 letter for the state "CA" if you want to get the current data for that state.<br><br>
-          You can also search by date in the second field, simply click on the field and calendar will pop up to choose the date.
+  <div id="secondHero" class="hero is-flex has-background">
+    <div class="hero-body">
+      <div class="container">
+        <img class="is-transparent" src="./assets/images/cdc-k0KRNtqcjfw-unsplash.jpg" alt="Image of the virus">
+        <p class="is-size-5 has-text-black-bis level-right">Welcome to the State Covid Tracker.
+          This application enables you to search for up to date Covid-19 data in all 50 States.<br><br>
+          To search the current data, simply put two letters for the state in the first field, eg. 2 letter for the
+          state "CA" if you want to get the current data for that state.<br><br>
+          You can also search by date in the second field, simply click on the field and calendar will pop up to choose
+          the date.
         </p>
 
       </div>
-        </div>
-          </div>
-      
     </div>
+  </div>
 
-    <div class="container is-flex">
-      <div class="container is-flex is-justify-content-space-around mt-5">
-        <input 
-          class="input"
-          type="text"
-          id="user-search"
-          placeholder="2 Letter format 'CA'"
-        />
-        <input id="datepicker" class="input" aria-label="Select Date"/>
-        <!-- <input
+  </div>
+
+  <div class="container is-flex">
+    <div class="container is-flex is-justify-content-space-around mt-5">
+      <input class="input" type="text" id="user-search" placeholder="2 Letter format 'CA'" />
+      <input id="datepicker" class="input" aria-label="Select Date" />
+      <!-- <input
           class="input"
           id="datepicker"
         /> -->
-        <button class="button" id="state-submit">SUBMIT</button>
-        <button class="button" id="clear-submit">CLEAR</button>
-      </div>
+      <button class="button" id="state-submit">SUBMIT</button>
+      <button class="button" id="clear-submit">CLEAR</button>
     </div>
-    <br />
+  </div>
+  <br />
 
-    <div class="container has-text-centered is-size-2 box"  id = "newsArticles">
-      <p>LATEST HEADLINES ON COVID</p>
-
-
-      
-        <div class="marquee is-flex has-text-left is-justify-content-center ">
-          <ul class="marquee-content-items is-size-6 is-flex is-flex-direction-column  " >
-          
-            <!-- Appended items appear here -->
-          </ul>
-        </div>
-      </div>
-
-   
-
-      <div class="articles" >
-        
-        
-            <div id = "newsContainer" class= "is-size-6 has-text-centered"></div>
-         
-          
-             
-            
-            
-          
-       
-      </div>
+  <div class="container has-text-centered is-size-2 box" id="newsArticles">
+    <p>LATEST HEADLINES ON COVID</p>
 
 
-  
+
+    <div class="marquee is-flex has-text-left is-justify-content-center ">
+      <ul class="marquee-content-items is-size-6 is-flex is-flex-direction-column  ">
+
+        <!-- Appended items appear here -->
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="articles">
+
+
+    <div id="newsContainer" class="is-size-6 has-text-centered"></div>
 
 
 
 
-    <div class="container">
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <div class="container">
 
     <div id="container-holder" class="columns level" style="padding:20px;">
       <div id="container" class="column is-6-desktop level-left box" style="margin-right: 5px;">
@@ -104,40 +99,48 @@
     </div>
     <br>
     <div id="container-holder-two" class="columns level" style="padding:20px;">
-    <div class="column is-6-desktop level-left box chartContainer1">
-      <!-- <canvas id="myChartOne"></canvas> -->
+      <div class="column is-6-desktop level-left box chartContainer1">
+        <!-- <canvas id="myChartOne"></canvas> -->
+      </div>
+      <br>
+      <div class="column is-6-desktop level-right box chartContainer2" style="margin-top: -25px;margin-left: 5px;">
+        <!-- <canvas id="myChartTwo"></canvas> -->
+      </div>
     </div>
-    <br>
-    <div class="column is-6-desktop level-right box chartContainer2" style="margin-top: -25px;margin-left: 5px;">
-      <!-- <canvas id="myChartTwo"></canvas> -->
-    </div>
-    </div>
-    </div>
+  </div>
 
 
 
-    <div id= "cdc-guidelines" class="container box">
-      <div id ="faqcontainer" >
-        <article id ="faqTitle" class = "message is-danger">
-        <div id = "faqHeader" class = "message-header ">CDC Guidelines FAQ</div>
-          <h3 style="font-weight:bold";>How can I find out what’s open in my county?</h3>
-      
-      
-      
+  <div id="cdc-guidelines" class="container">
+    <div id="faqcontainer">
+      <article id="faqTitle" class="message is-danger">
+        <div id="faqHeader" class="message-header ">CDC Guidelines FAQ</div>
+        <h3 style="font-weight:bold" class = "px-1">How can I find out what’s open in my county?</h3>
+        <p class="px-3">
+          The governor’s Safe Start plan outlines four phases of reopening. Our Safe Start page has information about
+          which phases each county is in and what's open in each phase.
+        </p>
+
+
       </article>
 
-      </div>
-
     </div>
 
+  </div>
 
-    <footer></footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
-    
 
-  </body>
+  <footer></footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"></script>
+
+
+</body>
+
 </html>
