@@ -195,7 +195,7 @@ function handleAPI() {
         method: "GET",
       }).then(function (responseTwo) {
         dateTwo.text("Date: " + responseTwo.date);
-        stateTwo.text("State: " + $(responseTwo.state).css("font-weight: bold;"));
+        stateTwo.text("State: " + responseTwo.state);
         deathTwo.text("Covid State Deaths: " + responseTwo.death);
         hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
         positiveTwo.text("Covid Positive Cases: " + responseTwo.positive);
