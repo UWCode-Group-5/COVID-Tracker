@@ -317,6 +317,7 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  saveState();
 
   currentChart.update({
     duration: 800,
@@ -330,16 +331,47 @@ stateSubmit.on("click", function (event) {
 });
 
 
+savedDataArray=[];
+var savedDataKey = "savedDataKey";
+//save to LS
 
 
-
-//save to local Storage
-function saveLastState(){
-
+var saveData = document.getElementById("statesubmit");
+statesubmit.addEventListener("click", function (e) {
 
 
+ statepicker = document.getElementById("statepicker").value;
+  console.log("ihello");
   
-}
+  savedDataArray.push({ state, date});
+  console.log(savedDataArray);
+  //savedDataString= JSON.stringify(savedDataArray);
+
+  //localStorage.setItem(savedDataKey, savedDataString);
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
