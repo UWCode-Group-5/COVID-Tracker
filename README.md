@@ -20,24 +20,13 @@ UW Coding Bootcamp Project 1
     - [Group 5](#group-5)
 
 ## Developer Comment
-Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
 
+Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
 
 ## Employer Request
 
-
-
 ### User Story
 
-<<<<<<< HEAD
-#Mockup
-
-#Website Features and Highlights 
-
-#Live Project Site 
-
-#Installation and Git Repository 
-=======
 ```
 AS A traveler with concerns about COVID-19
 I WANT to be able to see COVID-19 data based on location and date
@@ -45,7 +34,6 @@ SO THAT I can plan my travels to remain as safe as possible
 ```
 
 ### Acceptance Criteria
->>>>>>> main
 
 ```
 GIVEN I am navigating to a deployed website
@@ -59,20 +47,20 @@ THEN pertinent news articles are available at the header
 
 ## Mockup
 
-![Mobile website wireframe](./assets/images/Mobile_Wireframe.png)
+![Mobile website wireframe](./assets/images/Mobile-Wireframe.png)
 
-![Desktop website wireframe](./assets/images/Desktop_Wireframe.png)
+![Desktop website wireframe](./assets/images/Desktop-Wireframe.png)
 
 ## Website Features and Highlights
+
 ```
--Users are able to search for current Covid Data within any state in the U.S. 
--Users are also able to search historic data to compare to current Covid infections in the U.S. 
--This application features colorful graphs to easily read current/historical statistics. 
--The top of the application features a New York Times article section. This section updates daily 
-with the five latest articles containing information related to the Corona Virus. 
+-Users are able to search for current Covid Data within any state in the U.S.
+-Users are also able to search historic data to compare to current Covid infections in the U.S.
+-This application features colorful graphs to easily read current/historical statistics.
+-The top of the application features a New York Times article section. This section updates daily
+with the five latest articles containing information related to the Corona Virus.
 -The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or an IPad.
 ```
-
 
 ### HTML & CSS
 
@@ -109,8 +97,11 @@ Please follow the installation process below:
 2. Clone the repo to your computer via git
 3. Open the project files with the text editor of your choice.
 ```
+
 ## Contributors
+
 ### Group 5
+
 - Abdulhakeem Dahir
 - Marco Bejarano Osegura
 - Mia Dilberovic

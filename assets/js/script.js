@@ -209,6 +209,7 @@ function handleAPI() {
       }).then(function (responseTwo) {
         console.log(responseTwo);
         dateTwo.text("Date: " + responseTwo.date);
+        console.log(responseTwo.date);
         stateTwo.text("State: " + responseTwo.state);
         deathTwo.text("Death: " + responseTwo.death);
         hospitalizedTwo.text("Hospitalized: " + responseTwo.hospitalized);
