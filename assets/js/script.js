@@ -3,8 +3,6 @@ var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
 $("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
-
-
 // Setting up Current Chart.js
 function chartCurrent(response) {
   var canvasOne = $("<canvas id='myChartOne'></canvas>");
@@ -76,9 +74,6 @@ function chartHistoric(responseTwo) {
 
 }
 
-
-
-
 // Current Data Container
 var container = $("#container");
 console.log(container);
@@ -103,7 +98,6 @@ var negativeTwo = $("<h3>");
 var positiveIncreaseTwo = $("<h3>");
 var negativeIncreaseTwo = $("<h3>");
 var dataQualityGradeTwo = $("<h3>");
-
 
 // Append Current Items
 function appendCurrent() {
@@ -230,7 +224,6 @@ function handleAPI() {
   });
 }
 
-
 //News Handler Variables
 
 var newsContainerEl = $("#newsContainer");
@@ -260,16 +253,8 @@ function newsHandler() {
     console.log(link0);
     //link.text("Link").attr("href", link0);
 
-
-
     var articleArray = response.response;
     console.log(articleArray);
-
-
-
-
-
-    
 
     for (var i = 0; i < 5; i++) {
 
@@ -286,8 +271,6 @@ function newsHandler() {
       console.log(article);
     }
 
-
-
     var articleArray = response.response;
     console.log(articleArray)
 
@@ -300,11 +283,7 @@ function newsHandler() {
         }
 
   });
-
-
-
 }
-
 
 // Append Current Items
 function appendNews() {
@@ -314,11 +293,6 @@ function appendNews() {
     link
   );
 }
-
-
-
-
-
 
 // Appending and Calling NewsAPI
 appendNews();
@@ -340,19 +314,10 @@ stateSubmit.on("click", function (event) {
 
 });
 
-
-
-
-
 //save to local Storage
 function saveLastState(){
 
-
-
-  
 }
-
-
 
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
@@ -362,22 +327,4 @@ clearSubmit.on("click", function (event) {
   historicChart.destroy();
 });
 
-
-
-
-
-
-// Defining news handler
-function newsHandlerTwo() {
-  var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
-
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response.response.docs[0].headline.main)
-  })
-};
-
-newsHandlerTwo()
 
