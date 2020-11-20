@@ -49,7 +49,7 @@ THEN pertinent news articles are available at the header
 
 ## Mockup
 
-<img>(assets/images/Desktop Wireframe.png)<img>
+(.assets\images\Desktop Wireframe.png)
 
 
 
