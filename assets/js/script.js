@@ -76,7 +76,6 @@ function chartHistoric(responseTwo) {
 
 // Current Data Container
 var container = $("#container");
-console.log(container);
 var date = $("<h3>");
 var state = $("<h3>");
 var death = $("<h3>");
@@ -155,14 +154,12 @@ function removeItems() {
 // Call API's
 function handleAPI() {
   var states = $("#user-search").val();
-  console.log(states);
   var queryURL =
     "https://api.covidtracking.com/v1/states/" + states + "/current.json";
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     // Ajax Call for Searched Current Values
     date.text("Date: " + response.date);
     state.text("State: " + response.state);
@@ -184,24 +181,19 @@ function handleAPI() {
 
     //Ajax call for Searched Historic Values
     var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
-    // var dates = $("#user-date").val();
-    console.log(dates);
     var queryURL =
       "https://api.covidtracking.com/v1/states/" +
       states +
       "/" +
       dates +
       ".json";
-    console.log(typeof dates == "string");
     if (dates == "") {
-      console.log("You need to add a date bud");
       return
     } else {
       $.ajax({
         url: queryURL,
         method: "GET",
       }).then(function (responseTwo) {
-        console.log(responseTwo);
         dateTwo.text("Date: " + responseTwo.date);
         stateTwo.text("State: " + responseTwo.state);
         deathTwo.text("Death: " + responseTwo.death);
@@ -227,7 +219,6 @@ function handleAPI() {
 //News Handler Variables
 
 var newsContainerEl = $("#newsContainer");
-console.log(newsContainerEl);
 var title = $("<h2>");
 var link = $("<a>");
 
@@ -235,26 +226,15 @@ var link = $("<a>");
 function newsHandler() {
   var queryURL =
     "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ";
-  console.log(queryURL);
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
 
     var resTitle = response.response.docs[0].headline.main;
-    //console.log(resTitle);
-    //title.text("Title: " + response.response.docs[0].headline.main);
-    console.log(response.response);
     var title0 = response.response.docs[0].headline.main;
-    console.log(title0);
-
     var link0 = response.response.docs[0].web_url;
-    console.log(link0);
-    //link.text("Link").attr("href", link0);
-
     var articleArray = response.response;
-    console.log(articleArray);
 
     for (var i = 0; i < 5; i++) {
 
@@ -268,12 +248,9 @@ function newsHandler() {
       link.attr("href", linki)
       article.append(link);
       unOrderList.append(article);
-      console.log(article);
     }
 
     var articleArray = response.response;
-    console.log(articleArray)
-
     var article;
     var unOrderList = $('.marque-content-items');
         for (var i=0; i<5;i++){
