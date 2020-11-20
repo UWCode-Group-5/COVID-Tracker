@@ -163,15 +163,15 @@ function handleAPI() {
     // Ajax Call for Searched Current Values
     date.text("Date: " + response.date);
     state.text("State: " + response.state);
-    death.text("Death: " + response.death);
-    hospitalized.text("Hospitalized: " + response.hospitalized);
-    positive.text("Positive: " + response.positive);
-    negative.text("Negative: " + response.negative);
+    death.text("Covid State Deaths: " + response.death);
+    hospitalized.text("Covid Hospitalizations: " + response.hospitalized);
+    positive.text("Covid Positive Cases: " + response.positive);
+    negative.text("Covid Negative Cases: " + response.negative);
     positiveIncrease.text(
-      "Positive Increase: " + response.positiveIncrease
+      "Covid Positive Case Increase: " + response.positiveIncrease
     );
     negativeIncrease.text(
-      "Negative Increase: " + response.negativeIncrease
+      "Covid Negative Case Increase: " + response.negativeIncrease
     );
     dataQualityGrade.text(
       "Data Quality Grade: " + response.dataQualityGrade
@@ -196,15 +196,15 @@ function handleAPI() {
       }).then(function (responseTwo) {
         dateTwo.text("Date: " + responseTwo.date);
         stateTwo.text("State: " + responseTwo.state);
-        deathTwo.text("Death: " + responseTwo.death);
-        hospitalizedTwo.text("Hospitalized: " + responseTwo.hospitalized);
-        positiveTwo.text("Positive: " + responseTwo.positive);
-        negativeTwo.text("Negative: " + responseTwo.negative);
+        deathTwo.text("Covid State Deaths: " + responseTwo.death);
+        hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
+        positiveTwo.text("Covid Positive Cases: " + responseTwo.positive);
+        negativeTwo.text("Covid Negative Cases: " + responseTwo.negative);
         positiveIncreaseTwo.text(
-          "Positive Increase: " + responseTwo.positiveIncrease
+          "Covid Positive Case Increase: " + responseTwo.positiveIncrease
         );
         negativeIncreaseTwo.text(
-          "Negative Increase: " + responseTwo.negativeIncrease
+          "Covid Negative Case Increase: " + responseTwo.negativeIncrease
         );
         dataQualityGradeTwo.text(
           "Data Qualtiy Grade: " + responseTwo.dataQualityGrade
@@ -279,16 +279,6 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
-
-  currentChart.update({
-    duration: 800,
-    easing: 'easeOutBounce'
-  });
-  historicChart.update({
-    duration: 800,
-    easing: 'easeOutBounce'
-  });
-
 });
 
 //save to local Storage
