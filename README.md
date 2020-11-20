@@ -1,30 +1,29 @@
-# GLOBAL COVID TRACKER
+# COVID TRACKER
 
 UW Coding Bootcamp Project 1
 
 ## Table of Contents
 
-- [GLOBAL COVID TRACKER](#global-covid-tracker)
-  - [Table of Contents](#table-of-contents)
-  - [Developer Comment](#developer-comment)
-  - [Employer Request](#employer-request)
-    - [User Story](#user-story)
-    - [Acceptance Criteria](#acceptance-criteria)
-  - [Mockup](#mockup)
-  - [Website Features and Highlights](#website-features-and-highlights)
-    - [HTML & CSS](#html--css)
-    - [JAVASCRIPT](#javascript)
-  - [Live Project Site](#live-project-site)
-  - [Installation and Git Repository](#installation-and-git-repository)
-  - [Contributors](#contributors)
-    - [Group 5](#group-5)
+- [Developer Comment](#developer-comment)
+- [Employer Request](#employer-request)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Mockup](#mockup)
+- [Website Features and Highlights](#website-features-and-highlights)
+- [Live Project Site](#live-project-site)
+- [Installation and Git Repository](#installation-and-git-repository)
+- [Contributors](#contributors)
+- [Future Development](#future-development)
 
 ## Developer Comment
 
+<<<<<<< HEAD
 Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
 
 ## Employer Request
 
+=======
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7
 ### User Story
 
 ```
@@ -47,8 +46,12 @@ THEN pertinent news articles are available at the header
 
 ## Mockup
 
+<<<<<<< HEAD
 ![Mobile website wireframe](./assets/images/Mobile-Wireframe.png)
 
+=======
+Application Wireframe
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7
 ![Desktop website wireframe](./assets/images/Desktop-Wireframe.png)
 
 ## Website Features and Highlights
@@ -107,3 +110,13 @@ Please follow the installation process below:
 - Mia Dilberovic
 - Mike Belliveau
 - Valentina Decyatnik
+<<<<<<< HEAD
+=======
+
+## Future Development
+- Incorporate international COVID data
+- On map selection of location
+- Extrapolation of data into future (future trends)
+- News ticker instead of static links
+- News links become location specific according to user input
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7

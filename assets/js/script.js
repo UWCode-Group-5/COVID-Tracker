@@ -1,9 +1,10 @@
+// Setting up moment.js
+var today = moment();
+
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
 $("#datepicker").datepicker({ dateFormat: 'yymmdd' });
-
-
 
 // Setting up Current Chart.js
 function chartCurrent(response) {
@@ -76,12 +77,8 @@ function chartHistoric(responseTwo) {
 
 }
 
-
-
-
 // Current Data Container
 var container = $("#container");
-console.log(container);
 var date = $("<h3>");
 var state = $("<h3>");
 var death = $("<h3>");
@@ -103,7 +100,6 @@ var negativeTwo = $("<h3>");
 var positiveIncreaseTwo = $("<h3>");
 var negativeIncreaseTwo = $("<h3>");
 var dataQualityGradeTwo = $("<h3>");
-
 
 // Append Current Items
 function appendCurrent() {
@@ -157,30 +153,30 @@ function removeItems() {
   negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
   dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
+var states = $("#user-search").val();
+
 
 // Call API's
 function handleAPI() {
   var states = $("#user-search").val();
-  console.log(states);
   var queryURL =
     "https://api.covidtracking.com/v1/states/" + states + "/current.json";
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     // Ajax Call for Searched Current Values
     date.text("Date: " + response.date);
     state.text("State: " + response.state);
-    death.text("Death: " + response.death);
-    hospitalized.text("Hospitalized: " + response.hospitalized);
-    positive.text("Positive: " + response.positive);
-    negative.text("Negative: " + response.negative);
+    death.text("Covid State Deaths: " + response.death);
+    hospitalized.text("Covid Hospitalizations: " + response.hospitalized);
+    positive.text("Covid Positive Cases: " + response.positive);
+    negative.text("Covid Negative Cases: " + response.negative);
     positiveIncrease.text(
-      "Positive Increase: " + response.positiveIncrease
+      "Covid Positive Case Increase: " + response.positiveIncrease
     );
     negativeIncrease.text(
-      "Negative Increase: " + response.negativeIncrease
+      "Covid Negative Case Increase: " + response.negativeIncrease
     );
     dataQualityGrade.text(
       "Data Quality Grade: " + response.dataQualityGrade
@@ -190,17 +186,13 @@ function handleAPI() {
 
     //Ajax call for Searched Historic Values
     var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
-    // var dates = $("#user-date").val();
-    console.log(dates);
     var queryURL =
       "https://api.covidtracking.com/v1/states/" +
       states +
       "/" +
       dates +
       ".json";
-    console.log(typeof dates == "string");
     if (dates == "") {
-      console.log("You need to add a date bud");
       return
     } else {
       $.ajax({
@@ -209,17 +201,16 @@ function handleAPI() {
       }).then(function (responseTwo) {
         console.log(responseTwo);
         dateTwo.text("Date: " + responseTwo.date);
-        console.log(responseTwo.date);
         stateTwo.text("State: " + responseTwo.state);
-        deathTwo.text("Death: " + responseTwo.death);
-        hospitalizedTwo.text("Hospitalized: " + responseTwo.hospitalized);
-        positiveTwo.text("Positive: " + responseTwo.positive);
-        negativeTwo.text("Negative: " + responseTwo.negative);
+        deathTwo.text("Covid State Deaths: " + responseTwo.death);
+        hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
+        positiveTwo.text("Covid Positive Cases: " + responseTwo.positive);
+        negativeTwo.text("Covid Negative Cases: " + responseTwo.negative);
         positiveIncreaseTwo.text(
-          "Positive Increase: " + responseTwo.positiveIncrease
+          "Covid Positive Case Increase: " + responseTwo.positiveIncrease
         );
         negativeIncreaseTwo.text(
-          "Negative Increase: " + responseTwo.negativeIncrease
+          "Covid Negative Case Increase: " + responseTwo.negativeIncrease
         );
         dataQualityGradeTwo.text(
           "Data Qualtiy Grade: " + responseTwo.dataQualityGrade
@@ -231,11 +222,9 @@ function handleAPI() {
   });
 }
 
-
 //News Handler Variables
 
 var newsContainerEl = $("#newsContainer");
-console.log(newsContainerEl);
 var title = $("<h2>");
 var link = $("<a>");
 
@@ -243,34 +232,15 @@ var link = $("<a>");
 function newsHandler() {
   var queryURL =
     "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ";
-  console.log(queryURL);
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
 
     var resTitle = response.response.docs[0].headline.main;
-    //console.log(resTitle);
-    //title.text("Title: " + response.response.docs[0].headline.main);
-    console.log(response.response);
     var title0 = response.response.docs[0].headline.main;
-    console.log(title0);
-
     var link0 = response.response.docs[0].web_url;
-    console.log(link0);
-    //link.text("Link").attr("href", link0);
-
-
-
     var articleArray = response.response;
-    console.log(articleArray);
-
-
-
-
-
-    
 
     for (var i = 0; i < 5; i++) {
 
@@ -284,14 +254,9 @@ function newsHandler() {
       link.attr("href", linki)
       article.append(link);
       unOrderList.append(article);
-      console.log(article);
     }
 
-
-
     var articleArray = response.response;
-    console.log(articleArray)
-
     var article;
     var unOrderList = $('.marque-content-items');
         for (var i=0; i<5;i++){
@@ -301,11 +266,7 @@ function newsHandler() {
         }
 
   });
-
-
-
 }
-
 
 // Append Current Items
 function appendNews() {
@@ -316,11 +277,6 @@ function appendNews() {
   );
 }
 
-
-
-
-
-
 // Appending and Calling NewsAPI
 appendNews();
 newsHandler();
@@ -329,21 +285,38 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  console.log(states);
 
 });
 
-
-
-
-
 //save to local Storage
-function saveLastState(){
+// function saveLastState(){
+
+// }
+
+// });
 
 
+// savedDataArray=[];
+// var savedDataKey = "savedDataKey";
+// //save to LS
 
+
+// var saveData = document.getElementById("statesubmit");
+// statesubmit.addEventListener("click", function (e) {
+
+
+//  statepicker = document.getElementById("statepicker").value;
+//   console.log("ihello");
   
-}
+//   savedDataArray.push({ state, date});
+//   console.log(savedDataArray);
+//   //savedDataString= JSON.stringify(savedDataArray);
 
+//   //localStorage.setItem(savedDataKey, savedDataString);
+
+
+// });
 
 
 // Clear Current and Historic API
@@ -352,20 +325,3 @@ clearSubmit.on("click", function (event) {
     removeItems();
   });
 
-
-
-
-
-// Defining news handler
-// function newsHandlerTwo(){
-//   var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=nWRIeVDQlH0DflGm5L1S9D7a8GPZU7WJ"
-
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response.response.docs[0].headline.main)
-//   })
-// };
-
-// newsHandlerTwo()
