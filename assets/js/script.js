@@ -288,6 +288,17 @@ function newsHandler() {
 
 
 
+    var articleArray = response.response;
+    console.log(articleArray)
+
+    var article;
+    var unOrderList = $('.marque-content-items');
+        for (var i=0; i<5;i++){
+          article = $('<li>');
+          article.text(response.response.docs[i].headline.main);
+          unOrderList.append(article);
+        }
+
   });
 
 
@@ -329,6 +340,20 @@ stateSubmit.on("click", function (event) {
 
 });
 
+
+
+
+
+//save to local Storage
+function saveLastState(){
+
+
+
+  
+}
+
+
+
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
   event.preventDefault();
@@ -336,6 +361,7 @@ clearSubmit.on("click", function (event) {
   currentChart.destroy();
   historicChart.destroy();
 });
+
 
 
 
@@ -354,3 +380,4 @@ function newsHandlerTwo() {
 };
 
 newsHandlerTwo()
+
