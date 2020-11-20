@@ -294,7 +294,6 @@ stateSubmit.on("click", function (event) {
 
 // }
 
-// });
 
 
 // savedDataArray=[];
