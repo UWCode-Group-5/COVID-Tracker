@@ -328,7 +328,7 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
-  saveState();
+  // saveState();
 
   currentChart.update({
     duration: 800,
