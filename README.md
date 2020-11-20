@@ -49,7 +49,9 @@ THEN pertinent news articles are available at the header
 
 ## Mockup
 
-! [portfolio] (assets/images/Desktop_Wireframe.png)
+![Mobile website wireframe](./assets/images/Mobile-Wireframe.png)
+
+![Desktop website wireframe](./assets/images/Desktop-Wireframe.png)
 
 
 
