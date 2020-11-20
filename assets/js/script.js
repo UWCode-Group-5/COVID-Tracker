@@ -282,12 +282,38 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+
 });
 
 //save to local Storage
 function saveLastState(){
 
 }
+
+});
+
+
+savedDataArray=[];
+var savedDataKey = "savedDataKey";
+//save to LS
+
+
+var saveData = document.getElementById("statesubmit");
+statesubmit.addEventListener("click", function (e) {
+
+
+ statepicker = document.getElementById("statepicker").value;
+  console.log("ihello");
+  
+  savedDataArray.push({ state, date});
+  console.log(savedDataArray);
+  //savedDataString= JSON.stringify(savedDataArray);
+
+  //localStorage.setItem(savedDataKey, savedDataString);
+
+
+});
+
 
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
