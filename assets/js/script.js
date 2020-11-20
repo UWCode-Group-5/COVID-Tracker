@@ -274,10 +274,10 @@ function newsHandler() {
     for (var i = 0; i < 5; i++) {
 
       var article;
-      var unOrderList = $(".marquee-content-items");
+      var unOrderList = $("#newsArticles");
       var link;
       var linki = response.response.docs[i].web_url;
-      article = $("<li>");
+      article = $('<li class="is-size-5" style= "list-style:none;"> ');
       link = $("<a>");
       link.text(response.response.docs[i].headline.main);
       link.attr("href", linki)
