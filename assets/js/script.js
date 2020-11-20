@@ -4,7 +4,10 @@ var today = moment();
 // Setup values
 var stateSubmit = $("#state-submit");
 var clearSubmit = $("#clear-submit");
-$("#datepicker").datepicker({ dateFormat: 'yymmdd' });
+var userSearch = $("#user-search");
+var citiesArray = [];
+var datesArray = [];
+var newDate = $("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
 // Setting up Current Chart.js
 function chartCurrent(response) {
@@ -154,9 +157,11 @@ function removeItems() {
   dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
 
+
+
 // Call API's
-function handleAPI() {
-  var states = $("#user-search").val();
+function handleAPI(states,dates) {
+  
   var queryURL =
     "https://api.covidtracking.com/v1/states/" + states + "/current.json";
   $.ajax({
@@ -183,7 +188,6 @@ function handleAPI() {
     chartCurrent(response);
 
     //Ajax call for Searched Historic Values
-    var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
     var queryURL =
       "https://api.covidtracking.com/v1/states/" +
       states +
@@ -212,6 +216,9 @@ function handleAPI() {
         dataQualityGradeTwo.text(
           "Data Qualtiy Grade: " + responseTwo.dataQualityGrade
         );
+        // Add searched city and date to Local Storage
+        citiesArray.push(localStorage.setItem("city", JSON.stringify(states)));
+        datesArray.push(localStorage.setItem("date", JSON.stringify(dates)));
         appendHistoric();
         chartHistoric(responseTwo);
       });
@@ -278,38 +285,22 @@ function appendNews() {
 appendNews();
 newsHandler();
 
+// Get Local Item and Initialize last City and Date Search
+function getArrays(){
+  var states = JSON.parse(localStorage.getItem("city"));
+  var dates = JSON.parse(localStorage.getItem("date"));
+  handleAPI(states,dates);
+}
+
+getArrays();
+
 // Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
   event.preventDefault();
-  handleAPI();
+  var states = $("#user-search").val();
+var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
+  handleAPI(states,dates);
 });
-
-//save to local Storage
-function saveLastState(){
-
-}
-
-
-// savedDataArray=[];
-// var savedDataKey = "savedDataKey";
-// //save to LS
-
-
-// var saveData = document.getElementById("statesubmit");
-// statesubmit.addEventListener("click", function (e) {
-
-
-//  statepicker = document.getElementById("statepicker").value;
-//   console.log("ihello");
-  
-//   savedDataArray.push({ state, date});
-//   console.log(savedDataArray);
-//   //savedDataString= JSON.stringify(savedDataArray);
-
-//   //localStorage.setItem(savedDataKey, savedDataString);
-
-
-// });
 
 
 // Clear Current and Historic API
@@ -317,3 +308,4 @@ clearSubmit.on("click", function (event) {
   event.preventDefault();
   removeItems();
 });
+
