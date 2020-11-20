@@ -153,6 +153,8 @@ function removeItems() {
   negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
   dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
 }
+var states = $("#user-search").val();
+
 
 // Call API's
 function handleAPI() {
@@ -197,7 +199,8 @@ function handleAPI() {
         url: queryURL,
         method: "GET",
       }).then(function (responseTwo) {
-        dateTwo.text("Date: " + (moment(responseTwo.date).format('MM/DD/YYYY')));
+        console.log(responseTwo);
+        dateTwo.text("Date: " + responseTwo.date);
         stateTwo.text("State: " + responseTwo.state);
         deathTwo.text("Covid State Deaths: " + responseTwo.death);
         hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
@@ -282,45 +285,42 @@ newsHandler();
 stateSubmit.on("click", function (event) {
   event.preventDefault();
   handleAPI();
+  console.log(states);
 
 });
 
 //save to local Storage
-function saveLastState(){
+// function saveLastState(){
 
-}
-
-
+// }
 
 
-savedDataArray=[];
-var savedDataKey = "savedDataKey";
-//save to LS
+
+// savedDataArray=[];
+// var savedDataKey = "savedDataKey";
+// //save to LS
 
 
-var saveData = document.getElementById("statesubmit");
-statesubmit.addEventListener("click", function (e) {
+// var saveData = document.getElementById("statesubmit");
+// statesubmit.addEventListener("click", function (e) {
 
 
- statepicker = document.getElementById("statepicker").value;
-  console.log("ihello");
+//  statepicker = document.getElementById("statepicker").value;
+//   console.log("ihello");
   
-  savedDataArray.push({ state, date});
-  console.log(savedDataArray);
-  //savedDataString= JSON.stringify(savedDataArray);
+//   savedDataArray.push({ state, date});
+//   console.log(savedDataArray);
+//   //savedDataString= JSON.stringify(savedDataArray);
 
-  //localStorage.setItem(savedDataKey, savedDataString);
+//   //localStorage.setItem(savedDataKey, savedDataString);
 
 
-});
+// });
 
 
 // Clear Current and Historic API
 clearSubmit.on("click", function (event) {
-  event.preventDefault();
-  removeItems();
-  currentChart.destroy();
-  historicChart.destroy();
-});
-
+    event.preventDefault();
+    removeItems();
+  });
 

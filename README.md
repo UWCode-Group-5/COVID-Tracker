@@ -16,8 +16,14 @@ UW Coding Bootcamp Project 1
 - [Future Development](#future-development)
 
 ## Developer Comment
+
+<<<<<<< HEAD
 Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
 
+## Employer Request
+
+=======
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7
 ### User Story
 
 ```
@@ -40,17 +46,22 @@ THEN pertinent news articles are available at the header
 
 ## Mockup
 
+<<<<<<< HEAD
+![Mobile website wireframe](./assets/images/Mobile-Wireframe.png)
+
+=======
 Application Wireframe
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7
 ![Desktop website wireframe](./assets/images/Desktop-Wireframe.png)
 
 ## Website Features and Highlights
 
 ```
--Users are able to search for current Covid Data within any state in the U.S. 
--Users are also able to search historic data to compare to current Covid infections in the U.S. 
--This application features colorful graphs to easily read current/historical statistics. 
--The top of the application features a New York Times article section. This section updates daily 
-with the five latest articles containing information related to the Corona Virus. 
+-Users are able to search for current Covid Data within any state in the U.S.
+-Users are also able to search historic data to compare to current Covid infections in the U.S.
+-This application features colorful graphs to easily read current/historical statistics.
+-The top of the application features a New York Times article section. This section updates daily
+with the five latest articles containing information related to the Corona Virus.
 -The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or an IPad.
 ```
 
@@ -89,13 +100,18 @@ Please follow the installation process below:
 2. Clone the repo to your computer via git
 3. Open the project files with the text editor of your choice.
 ```
+
 ## Contributors
+
 ### Group 5
+
 - Abdulhakeem Dahir
 - Marco Bejarano Osegura
 - Mia Dilberovic
 - Mike Belliveau
 - Valentina Decyatnik
+<<<<<<< HEAD
+=======
 
 ## Future Development
 - Incorporate international COVID data
@@ -103,3 +119,4 @@ Please follow the installation process below:
 - Extrapolation of data into future (future trends)
 - News ticker instead of static links
 - News links become location specific according to user input
+>>>>>>> fec2b5052cffc71968dae9d0fe78af92a1677eb7
