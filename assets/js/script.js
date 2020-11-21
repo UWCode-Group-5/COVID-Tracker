@@ -169,11 +169,7 @@ function handleAPI(states,dates) {
     method: "GET",
   }).then(function (response) {
     // Ajax Call for Searched Current Values
-<<<<<<< HEAD
-    date.text("Date: " + moment.format("MMMM Do YYYY"));
-=======
     date.text("Date: " + (moment(`${response.date}`).format('MM/DD/YYYY')));
->>>>>>> main
     state.text("State: " + response.state);
     death.text("Covid State Deaths: " + response.death);
     hospitalized.text("Covid Hospitalizations: " + response.hospitalized);
