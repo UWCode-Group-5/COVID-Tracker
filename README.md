@@ -81,6 +81,17 @@ with the five latest articles pertaining to the Corona Virus.
 
 ```
 
+### Technologies Used
+
+```
+- HTML, CSS, JavaScript
+- Bulma
+- JQuery
+- Chart JS
+- AJAX API request
+- Adobe XD - Wireframe Mockups
+```
+
 ## Live Project Site
 
 https://uwcode-group-5.github.io/State-COVID-Tracker/
