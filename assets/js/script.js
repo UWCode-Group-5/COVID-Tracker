@@ -287,7 +287,7 @@ newsHandler();
 
 // Get Local Item and Initialize last City and Date Search
 function getArrays(){
-  showContent();
+  // showContent();
   var states = JSON.parse(localStorage.getItem("city"));
   var dates = JSON.parse(localStorage.getItem("date"));
   handleAPI(states,dates);
