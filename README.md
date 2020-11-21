@@ -17,7 +17,9 @@ UW Coding Bootcamp Project 1
 
 ## Developer Comment
 
-Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. The website also displays applicable news stories for more information. This set of features will allow travelers to make informed decisions about potential destinations.
+Hello and welcome to the online repository of Group 5 of the UW Coding Bootcamp! We have created mobile-first website that allows the user to input a location code and retrieve COVID-19 related data in order to stay informed about travel plans. Historical data is accessible by inputting a date. Both of these are displayed numerically and graphically.
+
+The website displays applicable news stories and CDC Guidlines for more information, also allowing the user to navigate to the CDC website. This set of features will allow travelers to make informed decisions about potential destinations.
 
 
 ### User Story
@@ -52,8 +54,9 @@ Application Wireframe
 -Users are also able to search historic data to compare to current Covid infections in the U.S.
 -This application features colorful graphs to easily read current/historical statistics.
 -The top of the application features a New York Times article section. This section updates daily
-with the five latest articles containing information related to the Corona Virus.
--The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or an IPad.
+with the five latest articles pertaining to the Corona Virus.
+-At the bottom of the page, users can find a CDC Guidelines FAQ with a link to easily access the CDC website.
+-The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or tablet.
 ```
 
 ### HTML & CSS
@@ -61,6 +64,7 @@ with the five latest articles containing information related to the Corona Virus
 ```
 - Created a responsive HTML shell for the code to run
 - Created the necessary structure for the COVID API at "https://api.covidtracking.com"
+- Created the necessary structure for the New York Times API at "https://developer.nytimes.com/api"
 - Used Bulma to create the layout and design of the Application
 - Used Flex Box and Column widths to make responsive on all devices
 ```
@@ -69,16 +73,31 @@ with the five latest articles containing information related to the Corona Virus
 
 ```
 - Set up date and time variables with Moment JS
-- Used my setup Data Attrubutes as Conditionals
-- Added the feature to know whether you are past, present or future in your Daily Entry area.
-- Stored all values when save button is pressed to Local Storage.
-- User can see their notes even when they refresh.
+- Set up COVID tracking API for current and historic COVID-19 information
+- Set up NYT API to return pertinent news articles
+- Date Picker functionality added to the historic input field
+- Chart JS for visual representation of statistical data
+- Set up local storage to save user data.
 
+```
+
+### Technologies Used
+
+```
+- HTML, CSS, JavaScript
+- Bulma
+- JQuery
+- Chart JS
+- AJAX API request
+- Adobe XD - Wireframe Mockups
 ```
 
 ## Live Project Site
 
-https://uwcode-group-5.github.io/COVID-Tracker/
+https://uwcode-group-5.github.io/State-COVID-Tracker/
+
+![Desktop Website Screen Capture](./assets/images/desktop-screen-cap.png)
+
 
 ## Installation and Git Repository
 
