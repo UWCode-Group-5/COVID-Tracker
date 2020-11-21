@@ -299,6 +299,7 @@ stateSubmit.on("click", function (event) {
   event.preventDefault();
   var states = $("#user-search").val();
 var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
+showContent();
   handleAPI(states,dates);
 });
 
@@ -309,3 +310,16 @@ clearSubmit.on("click", function (event) {
   removeItems();
 });
 
+function hideContent (){
+  var newsContent = $("#newsArticles").css("display", "none");
+  var dataContent = $("#dataContent").css("display", "none");
+  var faqContent = $("#faqcontainer").css("display", "none");
+}
+
+hideContent();
+
+function showContent (){
+  var newsContent = $("#newsArticles").css("display", "block");
+  var dataContent = $("#dataContent").css("display", "block");
+  var faqContent = $("#faqcontainer").css("display", "block");
+}
