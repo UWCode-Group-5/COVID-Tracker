@@ -54,8 +54,9 @@ Application Wireframe
 -Users are also able to search historic data to compare to current Covid infections in the U.S.
 -This application features colorful graphs to easily read current/historical statistics.
 -The top of the application features a New York Times article section. This section updates daily
-with the five latest articles containing information related to the Corona Virus.
--The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or an IPad.
+with the five latest articles pertaining to the Corona Virus.
+-At the bottom of the page, users can find a CDC Guidelines FAQ with a link to easily access the CDC website.
+-The State Covid Tracker is a responsive website and can be viewed easily on a small screen such as a cell phone or tablet.
 ```
 
 ### HTML & CSS
