@@ -81,7 +81,9 @@ with the five latest articles pertaining to the Corona Virus.
 
 ## Live Project Site
 
-https://uwcode-group-5.github.io/COVID-Tracker/
+https://uwcode-group-5.github.io/State-COVID-Tracker/
+
+
 
 ## Installation and Git Repository
 
