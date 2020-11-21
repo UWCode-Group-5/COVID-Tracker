@@ -166,7 +166,7 @@ function handleAPI() {
     method: "GET",
   }).then(function (response) {
     // Ajax Call for Searched Current Values
-    date.text("Date: " + response.date);
+    date.text("Date: " + moment.format("MMMM Do YYYY"));
     state.text("State: " + response.state);
     death.text("Covid State Deaths: " + response.death);
     hospitalized.text("Covid Hospitalizations: " + response.hospitalized);
