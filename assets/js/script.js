@@ -134,27 +134,11 @@ function appendHistoric() {
 
 // Empty Values
 function removeItems() {
-  // Clear Current Values
-  date = date.text(" ");
-  state = state.text(" ");
-  death = death.text(" ");
-  hospitalized = hospitalized.text(" ");
-  positive = positive.text(" ");
-  negative = negative.text(" ");
-  positiveIncrease = positiveIncrease.text(" ");
-  negativeIncrease = negativeIncrease.text(" ");
-  dataQualityGrade = dataQualityGrade.text(" ");
+  localStorage.clear();
 
-  //Clear Historic Values
-  dateTwo = dateTwo.text(" ");
-  stateTwo = stateTwo.text(" ");
-  deathTwo = deathTwo.text(" ");
-  hospitalizedTwo = hospitalizedTwo.text(" ");
-  positiveTwo = positiveTwo.text(" ");
-  negativeTwo = negativeTwo.text(" ");
-  positiveIncreaseTwo = positiveIncreaseTwo.text(" ");
-  negativeIncreaseTwo = negativeIncreaseTwo.text(" ");
-  dataQualityGradeTwo = dataQualityGradeTwo.text(" ");
+  if (localStorage.getItem("city") === null){
+    hideContent();
+    }
 }
 
 
@@ -309,20 +293,25 @@ showContent();
 clearSubmit.on("click", function (event) {
   event.preventDefault();
   removeItems();
+  
 });
 
+
+// Showing content
+function showContent (){
+  var newsContent = $("#newsArticles").css("display", "block");
+  var dataContent = $("#dataContent").css("display", "block");
+  var faqContent = $("#faqcontainer").css("display", "block");
+}
+
+// Hiding Content
 function hideContent (){
   var newsContent = $("#newsArticles").css("display", "none");
   var dataContent = $("#dataContent").css("display", "none");
   var faqContent = $("#faqcontainer").css("display", "none");
 }
 
+// Calling Hidden Content
 if (localStorage.getItem("city") === null){
-hideContent();
-}
-
-function showContent (){
-  var newsContent = $("#newsArticles").css("display", "block");
-  var dataContent = $("#dataContent").css("display", "block");
-  var faqContent = $("#faqcontainer").css("display", "block");
-}
+  hideContent();
+  }
