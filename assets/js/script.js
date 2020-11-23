@@ -9,6 +9,148 @@ var citiesArray = [];
 var datesArray = [];
 var newDate = $("#datepicker").datepicker({ dateFormat: 'yymmdd' });
 
+// Setting up States Object
+
+var statesObj = {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AS": "American Samoa",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District Of Columbia",
+    "FM": "Federated States Of Micronesia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "GU": "Guam",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MH": "Marshall Islands",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "NM": "New Mexico",
+    "NY": "New York",
+    "NC": "North Carolina",
+    "ND": "North Dakota",
+    "MP": "Northern Mariana Islands",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PW": "Palau",
+    "PA": "Pennsylvania",
+    "PR": "Puerto Rico",
+    "RI": "Rhode Island",
+    "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VI": "Virgin Islands",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming"
+}
+
+var statesObjOpp = {
+  'alabama': 'AL',
+  'alaska': 'AK',
+  'american Samoa': 'AS',
+  'arizona': 'AZ',
+  'arkansas': 'AR',
+  'california': 'CA',
+  'colorado': 'CO',
+  'connecticut': 'CT',
+  'delaware': 'DE',
+  'district Of Columbia': 'DC',
+  'federated States Of Micronesia': 'FM',
+  'florida': 'FL',
+  'georgia': 'GA',
+  'guam': 'GU',
+  'hawaii': 'HI',
+  'idaho': 'ID',
+  'illinois': 'IL',
+  'indiana': 'IN',
+  'iowa': 'IA',
+  'kansas': 'KS',
+  'kentucky': 'KY',
+  'louisiana': 'LA',
+  'maine': 'ME',
+  'marshall Islands': 'MH',
+  'maryland': 'MD',
+  'massachusetts': 'MA',
+  'michigan': 'MI',
+  'minnesota': 'MN',
+  'mississippi': 'MS',
+  'missouri': 'MO',
+  'montana': 'MT',
+  'nebraska': 'NE',
+  'nevada': 'NV',
+  'new hampshire': 'NH',
+  'new jersey': 'NJ',
+  'new mexico': 'NM',
+  'new york': 'NY',
+  'north carolina': 'NC',
+  'north dakota': 'ND',
+  'northern mariana islands': 'MP',
+  'ohio': 'OH',
+  'oklahoma': 'OK',
+  'oregon': 'OR',
+  'palau': 'PW',
+  'pennsylvania': 'PA',
+  'puerto Rico': 'PR',
+  'rhode Island': 'RI',
+  'south carolina': 'SC',
+  'south dakota': 'SD',
+  'tennessee': 'TN',
+  'texas': 'TX',
+  'utah': 'UT',
+  'vermont': 'VT',
+  'virgin Islands': 'VI',
+  'virginia': 'VA',
+  'washington': 'WA',
+  'west Virginia': 'WV',
+  'wisconsin': 'WI',
+  'wyoming': 'WY'
+}
+
+// Convert Abreviated States into Full States Function
+function stateAbbr (state, statesObj){
+  stateUpper = state.toUpperCase().trim();
+   getAbbr = statesObj[stateUpper];
+   return getAbbr;
+}
+
+// Convert input into abbreviated states
+function stateFullName (statesObjOpp){
+  var state = $("#user-search").val();
+  stateFull = state.toLowerCase().trim();
+   getAbbr = statesObjOpp[stateFull];
+   return getAbbr;
+}
+
+
 // Setting up Current Chart.js
 function chartCurrent(response) {
   var canvasOne = $("<canvas id='myChartOne'></canvas>");
@@ -154,7 +296,9 @@ function handleAPI(states,dates) {
   }).then(function (response) {
     // Ajax Call for Searched Current Values
     date.text("Date: " + (moment(`${response.date}`).format('MM/DD/YYYY')));
-    state.text("State: " + response.state);
+    stateAb = response.state;
+    stateFull = stateAbbr(stateAb, statesObj);
+    state.text("State: " + stateFull);
     death.text("Covid State Deaths: " + response.death);
     hospitalized.text("Covid Hospitalizations: " + response.hospitalized);
     positive.text("Covid Positive Cases: " + response.positive);
@@ -186,7 +330,9 @@ function handleAPI(states,dates) {
         method: "GET",
       }).then(function (responseTwo) {
         dateTwo.text("Date: " + (moment(`${responseTwo.date}`).format('MM/DD/YYYY')));
-        stateTwo.text("State: " + responseTwo.state);
+        state2 = responseTwo.state;
+        stateFull2 = stateAbbr(state2, statesObj)
+        stateTwo.text("State: " + stateFull2);
         deathTwo.text("Covid State Deaths: " + responseTwo.death);
         hospitalizedTwo.text("Covid Hospitalizations: " + responseTwo.hospitalized);
         positiveTwo.text("Covid Positive Cases: " + responseTwo.positive);
@@ -282,7 +428,7 @@ getArrays();
 // Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
   event.preventDefault();
-  var states = $("#user-search").val();
+  var states = stateFullName(statesObjOpp);
 var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
 showContent();
   handleAPI(states,dates);
