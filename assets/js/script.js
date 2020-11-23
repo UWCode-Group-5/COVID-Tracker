@@ -73,10 +73,80 @@ var statesObj = {
     "WY": "Wyoming"
 }
 
+var statesObjOpp = {
+  'alabama': 'AL',
+  'alaska': 'AK',
+  'american Samoa': 'AS',
+  'arizona': 'AZ',
+  'arkansas': 'AR',
+  'california': 'CA',
+  'colorado': 'CO',
+  'connecticut': 'CT',
+  'delaware': 'DE',
+  'district Of Columbia': 'DC',
+  'federated States Of Micronesia': 'FM',
+  'florida': 'FL',
+  'georgia': 'GA',
+  'guam': 'GU',
+  'hawaii': 'HI',
+  'idaho': 'ID',
+  'illinois': 'IL',
+  'indiana': 'IN',
+  'iowa': 'IA',
+  'kansas': 'KS',
+  'kentucky': 'KY',
+  'louisiana': 'LA',
+  'maine': 'ME',
+  'marshall Islands': 'MH',
+  'maryland': 'MD',
+  'massachusetts': 'MA',
+  'michigan': 'MI',
+  'minnesota': 'MN',
+  'mississippi': 'MS',
+  'missouri': 'MO',
+  'montana': 'MT',
+  'nebraska': 'NE',
+  'nevada': 'NV',
+  'new hampshire': 'NH',
+  'new jersey': 'NJ',
+  'new mexico': 'NM',
+  'new york': 'NY',
+  'north carolina': 'NC',
+  'north dakota': 'ND',
+  'northern mariana islands': 'MP',
+  'ohio': 'OH',
+  'oklahoma': 'OK',
+  'oregon': 'OR',
+  'palau': 'PW',
+  'pennsylvania': 'PA',
+  'puerto Rico': 'PR',
+  'rhode Island': 'RI',
+  'south carolina': 'SC',
+  'south dakota': 'SD',
+  'tennessee': 'TN',
+  'texas': 'TX',
+  'utah': 'UT',
+  'vermont': 'VT',
+  'virgin Islands': 'VI',
+  'virginia': 'VA',
+  'washington': 'WA',
+  'west Virginia': 'WV',
+  'wisconsin': 'WI',
+  'wyoming': 'WY'
+}
+
 // Convert Abreviated States into Full States Function
 function stateAbbr (state, statesObj){
-  stateUpper = state.toUpperCase();
-   getAbbr = statesObj[`${stateUpper}`];
+  stateUpper = state.toUpperCase().trim();
+   getAbbr = statesObj[stateUpper];
+   return getAbbr;
+}
+
+// Convert input into abbreviated states
+function stateFullName (statesObjOpp){
+  var state = $("#user-search").val();
+  stateFull = state.toLowerCase().trim();
+   getAbbr = statesObjOpp[stateFull];
    return getAbbr;
 }
 
@@ -358,7 +428,7 @@ getArrays();
 // Calling and Rendering Current and Historic API
 stateSubmit.on("click", function (event) {
   event.preventDefault();
-  var states = $("#user-search").val();
+  var states = stateFullName(statesObjOpp);
 var dates = $("#datepicker").datepicker({ dateFormat: 'yymmdd' }).val();
 showContent();
   handleAPI(states,dates);
